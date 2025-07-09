@@ -1,0 +1,1476 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://minecraft-blog.net/wp-content/themes/swell_child/01_command-je/common.css" />
+<script src="https://minecraft-blog.net/wp-content/themes/swell_child/01_command-je/common.js" ></script>
+
+<form name="form">
+	
+	<b style="background-color:gainsboro">1.基本設定</b><br>
+	
+	<table class="command-table-vertical">
+
+		<tr>
+			<th>プレイヤー</th>
+			<td><input class="command-input" type="text" name="targets" value="@p" placeholder="必須" onchange="makeCommand()"></td>
+		</tr>
+		
+		<tr>
+			<th>個数</th>
+			<td><input class="command-input" type="number" name="count" size="15" value="" placeholder="任意" min="1" max="64" onchange="makeCommand()"></td>
+		</tr>
+
+	</table>
+
+	<br clear="all">
+	
+	<b style="background-color:gainsboro">2.ポーションの種類</b><br>
+	
+	<table class="command-table-vertical">
+		
+		<tr>
+			<th>ポーションのタイプ</th>
+			<td>
+				<select class="command-input" name="item" onchange="makeCommand()">
+					<option value="potion">ポーション</option>
+					<option value="splash_potion">スプラッシュポーション</option>
+					<option value="lingering_potion">残留ポーション</option>
+					<option value="tipped_arrow">効果付きの矢</option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<th>ポーションの種類</th>
+			<td>
+				<select class="command-input" name="potion" onchange="makeCommand()">
+					<option value="">未設定</option>
+					<option value="mundane">ありふれたポーション</option>
+					<option value="thick">濃厚なポーション</option>
+					<option value="awkward">奇妙なポーション</option>
+					<option value="night_vision">暗視のポーション</option>
+					<option value="long_night_vision">暗視のポーション-延長</option>
+					<option value="invisibility">透明化のポーション</option>
+					<option value="long_invisibility">透明化のポーション-延長</option>
+					<option value="leaping">跳躍のポーション</option>
+					<option value="long_leaping">跳躍のポーション-延長</option>
+					<option value="strong_leaping">跳躍のポーション-強化</option>
+					<option value="fire_resistance">耐火のポーション</option>
+					<option value="long_fire_resistance">耐火のポーション-延長</option>
+					<option value="swiftness">俊敏のポーション</option>
+					<option value="long_swiftness">俊敏のポーション-延長</option>
+					<option value="strong_swiftness">俊敏のポーション-強化</option>
+					<option value="slowness">鈍化のポーション</option>
+					<option value="long_slowness">鈍化のポーション-延長</option>
+					<option value="strong_slowness">鈍化のポーション-強化</option>
+					<option value="turtle_master">タートルマスターのポーション</option>
+					<option value="long_turtle_master">タートルマスターのポーション-延長</option>
+					<option value="strong_turtle_master">タートルマスターのポーション-強化</option>
+					<option value="water_breathing">水中呼吸のポーション</option>
+					<option value="long_water_breathing">水中呼吸のポーション-延長</option>
+					<option value="healing">治癒のポーション</option>
+					<option value="strong_healing">治癒のポーション-強化</option>
+					<option value="harming">負傷のポーション</option>
+					<option value="strong_harming">負傷のポーション-強化</option>
+					<option value="poison">毒のポーション</option>
+					<option value="long_poison">毒のポーション-延長</option>
+					<option value="strong_poison">毒のポーション-強化</option>
+					<option value="regeneration">再生のポーション</option>
+					<option value="long_regeneration">再生のポーション-延長</option>
+					<option value="strong_regeneration">再生のポーション-強化</option>
+					<option value="strength">力のポーション</option>
+					<option value="long_strength">力のポーション-延長</option>
+					<option value="strong_strength">力のポーション-強化</option>
+					<option value="weakness">弱化のポーション</option>
+					<option value="long_weakness">弱化のポーション-強化</option>
+					<option value="luck">幸運のポーション</option>
+					<option value="slow_falling">低速落下のポーション</option>
+					<option value="long_slow_falling">低速落下のポーション-延長</option>
+					<option value="wind_charged">蓄風のポーション	</option>
+					<option value="weaving">巣張りのポーション</option>
+					<option value="oozing">滲出のポーション</option>
+					<option value="infested">虫食いのポーション</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<th rowspan="2">ポーションの色</th>
+			<td>
+				<select class="command-input" size="1" name="custom_color_flag" onchange="makeCommand()">
+					<option value="">未設定</option>
+					<option value="true">設定</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+
+			<td><input type="color" name="custom_color" value="" onchange="makeCommand()"></td>
+		</tr>
+	
+	</table>
+	
+	<table class="command-table-vertical">
+
+		<tr>
+			<th>ポーションの名前</th>
+			<td><input class="command-input" type="text" name="custom_name" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+
+		<tr>
+			<th>ポーションの説明文1</th>
+			<td><input class="command-input" type="text" name="lore" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+		<tr>
+			<th>ポーションの説明文2</th>
+			<td><input class="command-input" type="text" name="lore" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+		<tr>
+			<th>ポーションの説明文3</th>
+			<td><input class="command-input" type="text" name="lore" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+		<tr>
+			<th>ポーションの説明文4</th>
+			<td><input class="command-input" type="text" name="lore" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+		
+	</table>
+
+	<br clear="all">
+	
+	
+	
+	<b style="background-color:gainsboro">3.ポーションの効果</b><br>
+	
+				<table class="command-table-horizontal">
+
+					<tr>
+						<th style="width:120px;">効果</th>
+						<th style="width:50px;">レベル</th>
+						<th style="width:60px;">効果秒数</th>
+						<th style="width:130px;">アイコンパーティクル</th>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_移動速度上昇.png" alt="移動速度上昇" width="18" height="18"  onchange="makeCommand()" />移動速度上昇</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="speed"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_移動速度低下.png" alt="移動速度低下" width="18" height="18"  onchange="makeCommand()" />移動速度低下</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="slowness"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_採掘速度上昇.png" alt="採掘速度上昇" width="18" height="18"  onchange="makeCommand()" />採掘速度上昇</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="haste"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_採掘速度低下.png" alt="採掘速度低下" width="18" height="18"  onchange="makeCommand()" />採掘速度低下</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="mining_fatigue"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_攻撃力上昇.png" alt="攻撃力上昇" width="18" height="18"  onchange="makeCommand()" />攻撃力上昇</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="strength"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_即時回復.png" alt="即時回復" width="18" height="18"  onchange="makeCommand()" />即時回復</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="instant_health"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_即時ダメージ.png" alt="即時ダメージ" width="18" height="18"  onchange="makeCommand()" />即時ダメージ</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="instant_damage"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_跳躍力上昇.png" alt="跳躍力上昇" width="18" height="18"  onchange="makeCommand()" />跳躍力上昇</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="jump_boost"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_吐き気.png" alt="吐き気" width="18" height="18"  onchange="makeCommand()" />吐き気</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="nausea"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_再生能力.png" alt="再生能力" width="18" height="18"  onchange="makeCommand()" />再生能力</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="regeneration"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+				</table>
+
+
+				<table class="command-table-horizontal">
+
+					<tr>
+						<th style="width:120px;">効果</th>
+						<th style="width:50px;">レベル</th>
+						<th style="width:60px;">効果秒数</th>
+						<th style="width:130px;">アイコンパーティクル</th>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_耐性.png" alt="耐性" width="18" height="18"  onchange="makeCommand()" />耐性</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="resistance"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_火炎耐性.png" alt="火炎耐性" width="18" height="18"  onchange="makeCommand()" />火炎耐性</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="fire_resistance"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_水中呼吸.png" alt="水中呼吸" width="18" height="18"  onchange="makeCommand()" />水中呼吸</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="water_breathing"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_透明化.png" alt="透明化" width="18" height="18"  onchange="makeCommand()" />透明化</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="invisibility"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_盲目.png" alt="盲目" width="18" height="18"  onchange="makeCommand()" />盲目</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="blindness"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_暗視.png" alt="暗視" width="18" height="18"  onchange="makeCommand()" />暗視</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="night_vision"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_空腹.png" alt="空腹" width="18" height="18"  onchange="makeCommand()" />空腹</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="hunger"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_弱体化.png" alt="弱体化" width="18" height="18"  onchange="makeCommand()" />弱体化</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="weakness"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_毒.png" alt="毒" width="18" height="18"  onchange="makeCommand()" />毒</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="poison"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_衰退.png" alt="衰退" width="18" height="18"  onchange="makeCommand()" />衰退</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="wither"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+				</table>
+				
+				<br clear="all">
+				
+				<table class="command-table-horizontal">
+
+					<tr>
+						<th style="width:120px;">効果</th>
+						<th style="width:50px;">レベル</th>
+						<th style="width:60px;">効果秒数</th>
+						<th style="width:130px;">アイコンパーティクル</th>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_体力増強.png" alt="体力増強" width="18" height="18"  onchange="makeCommand()" />体力増強</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="health_boost"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_衝撃吸収.png" alt="衝撃吸収" width="18" height="18"  onchange="makeCommand()" />衝撃吸収</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="absorption"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_満腹度回復.png" alt="満腹度回復" width="18" height="18"  onchange="makeCommand()" />満腹度回復</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="saturation"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_発光.png" alt="発光" width="18" height="18"  onchange="makeCommand()" />発光</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="glowing"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_浮遊.png" alt="浮遊" width="18" height="18"  onchange="makeCommand()" />浮遊</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="levitation"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_幸運.png" alt="幸運" width="18" height="18"  onchange="makeCommand()" />幸運</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="luck"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_不幸.png" alt="不幸" width="18" height="18"  onchange="makeCommand()" />不幸</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="unluck"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_落下速度低下.png" alt="落下速度低下" width="18" height="18"  onchange="makeCommand()" />落下速度低下</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="slow_falling"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_コンジットパワー.png" alt="コンジットパワー" width="18" height="18"  onchange="makeCommand()" />コンジットパワー</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="conduit_power"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_イルカの好意.png" alt="イルカの好意" width="18" height="18"  onchange="makeCommand()" />イルカの好意</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="dolphins_grace"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+					
+				</table>
+				
+				<table class="command-table-horizontal">
+
+					<tr>
+						<th style="width:120px;">効果</th>
+						<th style="width:50px;">レベル</th>
+						<th style="width:60px;">効果秒数</th>
+						<th style="width:130px;">アイコンパーティクル</th>
+					</tr>
+
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_村の英雄.png" alt="村の英雄" width="18" height="18"  onchange="makeCommand()" />村の英雄</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="hero_of_the_village"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_暗闇.png" alt="暗闇" width="18" height="18"  onchange="makeCommand()" />暗闇</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="darkness"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_不吉な予感.png" alt="不吉な予感" width="18" height="18"  onchange="makeCommand()" />不吉な予感</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="bad_omen"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_試練の予感.png" alt="試練の予感" width="18" height="18"  onchange="makeCommand()" />試練の予感</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="trial_omen"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_襲撃の予感.png" alt="襲撃の予感" width="18" height="18"  onchange="makeCommand()" />襲撃の予感</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="raid_omen"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+				
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_巣張り.png" alt="巣張り" width="18" height="18"  onchange="makeCommand()" />巣張り</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="weaving"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_滲出.png" alt="滲出" width="18" height="18"  onchange="makeCommand()" />滲出</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="oozing"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_虫食い.png" alt="虫食い" width="18" height="18"  onchange="makeCommand()" />虫食い</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="infested"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+					
+					<tr>
+						<td><img class="alignnone" src="https://minecraft-media.com/javaedition/effect/エフェクト_蓄風.png" alt="蓄風" width="18" height="18"  onchange="makeCommand()" />蓄風</td>
+						<td><input class="command-input" type="number" name="amplifier" value=""  min="0" max="255" title="wind_charged"  onchange="makeCommand()"></td>
+						<td><input class="command-input" type="number" name="duration" value="10"  min="0" max="1000000" onchange="makeCommand()"></td>
+						<td>
+							<select class="command-input" name="show_particles_show_icon">
+								<option value="">表示</option>
+								<option value="show_icon">パーティクルのみ表示</option>
+								<option value="show_particles">非表示</option>
+							</select>
+						</td>
+					</tr>
+
+				</table>
+	
+	<br clear="all">
+	
+	<b style="background-color:gainsboro">4.属性変更</b><br>
+	
+		<table class="command-table-horizontal">
+
+			<tr>
+				<th style="width:140px;">属性</th>
+				<th style="width:60px;">加算値</th>
+				<th style="width:80px;">ID</th>
+				<th style="width:80px;">スロット</th>
+			</tr>
+			
+			<tr>
+				<td>最大体力</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="max_health" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>衝撃吸収レベルの上限</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="max_absorption" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Mobの追跡範囲</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="follow_range" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>ノックバック耐性</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="knockback_resistance" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>移動速度</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="movement_speed" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>攻撃力</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="attack_damage" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>防御力</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="armor" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>防具強度</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="armor_toughness" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>ノックバック</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="attack_knockback" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>サイズ</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="scale" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>段差上限</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="step_height" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>攻撃速度</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="attack_speed" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>運</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="luck" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>ブロック操作範囲</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="block_interaction_range" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+		</table>
+
+			
+		<table class="command-table-horizontal">
+			
+			<tr>
+				<th style="width:140px;">属性</th>
+				<th style="width:60px;">加算値</th>
+				<th style="width:80px;">ID</th>
+				<th style="width:80px;">スロット</th>
+			</tr>
+
+			<tr>
+				<td>エンティティ操作範囲</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="entity_interaction_range" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>重力</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="gravity" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>安全落下距離</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="safe_fall_distance" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>落下ダメージ倍率</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="fall_damage_multiplier" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>跳躍力</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="jump_strength" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>採掘速度</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="mining_efficiency" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>スニーク速度</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="sneaking_speed" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>水中採掘速度</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="submerged_mining_speed" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>なぎ払いダメージ比率</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="sweeping_damage_ratio" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>炎上時間</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="burning_time" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>爆発ノックバック耐性</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="explosion_knockback_resistance" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>移動効率</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="movement_efficiency" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>酸素ボーナス</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="oxygen_bonus" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>水中移動効率</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="water_movement_efficiency" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+		</table>
+	
+	<br clear="all">
+	
+	<input class="cmdButton" type="button" name="uuid" onclick="setID()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
+	<br>
+
+	<br clear="all">
+
+	<textarea id="cmdOutput" name="cmdOutput" rows="5" style="width:100%;"></textarea>
+	<div id="count">[文字数：0]</div>
+	<input class="cmdButton" type="button" name="copy" onclick="cmdCopy('cmdOutput')" value="コマンドコピー">
+
+</form>
+
+<script>
+
+	//グローバル変数定義
+	command = "";
+	var component_custom_name = "";
+	var component_lore = "";
+	var component_potion_contents = "";
+	var component_attribute_modifiers = "";
+	
+//初期設定
+$(document).ready(function() {
+	
+	//プルダウン読み込み
+	setID();
+	makeCommand();
+
+});
+
+function set_custom_name(){
+	
+	//変数定義
+	custom_name = {};
+	
+	//コンポーネント組み込み
+	if(form.custom_name.value !== ""){
+		component_custom_name = "custom_name='" + form.custom_name.value + "'";
+	}else{
+		component_custom_name = "";
+	}
+}
+	
+function set_lore(){
+	
+	//変数定義
+	lore = [];
+	
+	//コンポーネント組み込み
+	if(form.lore[0].value !== ""){
+		lore.push('"' + form.lore[0].value + '"');
+	}
+	if(form.lore[1].value !== ""){
+		lore.push('"' + form.lore[1].value + '"');
+	}
+	if(form.lore[2].value !== ""){
+		lore.push('"' + form.lore[2].value + '"');
+	}
+	if(form.lore[3].value !== ""){
+		lore.push('"' + form.lore[3].value + '"');
+	}
+	
+	if(lore.length > 0){
+		component_lore = "lore=[" + lore + "]";
+	}else{
+		component_lore = "";
+	}
+	
+}
+
+function set_potion_contents(){
+	
+	//変数定義
+	var potion_contents = {};
+	var custom_effects = [];
+	
+	//コンポーネント組み込み
+	if(form.potion.value !== ""){
+		potion_contents.potion = form.potion.value;
+	}
+	if (form.custom_color_flag.value !== "") {
+		potion_contents.custom_color = parseInt(form.custom_color.value.substr(1, 6), 16);
+	}
+	for(var i = 0; i < form.amplifier.length; i++){
+		if(form.amplifier[i].value !== ""){
+			str = {};
+			str.id = form.amplifier[i].title;
+			str.amplifier = form.amplifier[i].value - 1;
+			str.duration = form.duration[i].value * 20;
+			if (form.show_particles_show_icon[i].value == "show_icon") {
+				str.show_icon = false;
+			} else if (form.show_particles_show_icon[i].value == "show_particles") {
+				str.show_particles = false;
+			}
+			custom_effects.push(str);
+		}
+	}
+	if(custom_effects.length > 0){
+		potion_contents.custom_effects = custom_effects;
+	}
+	if(Object.keys(potion_contents).length !== 0){
+		component_potion_contents = "potion_contents=" + JSON.stringify(potion_contents);
+	}else{
+		component_potion_contents = "";
+	}
+}
+
+
+function set_attribute_modifiers(){
+	
+	//変数定義
+	var attribute_modifiers = [];
+	
+	//コンポーネント組み込み
+	for(var i = 0; i < form.amount.length; i++){
+		if(form.amount[i].value !== ""){
+			str = {};
+			str.type = form.amount[i].title;
+			str.amount = parseFloat(form.amount[i].value);
+			str.operation = "add_value";
+			if(form.slot[i].value !== ""){
+				str.slot = form.slot[i].value;
+			}
+			if(form.id[i].value !== ""){
+				str.id = form.id[i].value;
+			}
+			attribute_modifiers.push(str);
+		}
+	}
+	if(Object.keys(attribute_modifiers).length > 0){
+		component_attribute_modifiers = "attribute_modifiers=" + JSON.stringify(attribute_modifiers);
+	}else{
+		component_attribute_modifiers = "";
+	}
+}
+	
+function makeCommand(){
+
+	set_custom_name();
+	set_lore();
+	set_potion_contents();
+	set_attribute_modifiers();
+	
+	var components = [];
+	
+	if(component_custom_name !== ''){
+		components.push(component_custom_name);
+	}
+	if(component_lore !== ''){
+		components.push(component_lore);
+	}
+	if(component_potion_contents !== ''){
+		components.push(component_potion_contents);
+	}
+	if(component_attribute_modifiers !== ''){
+		components.push(component_attribute_modifiers);
+	}	
+	
+	//====================
+	// 出力
+	//====================
+	if (form.count.value == "") {
+		form.cmdOutput.value = "/give " + form.targets.value + " " + form.item.value + "[" + components + "]";
+	}else{
+		form.cmdOutput.value = "/give " + form.targets.value + " " + form.item.value + "[" + components + "] " + form.count.value;
+	}
+	
+	//文字数出力
+	strLenPrint();
+	
+}
+
+function setID(){
+	var min = -1000000000;
+	var max = 1000000000;
+	for(var i = 0; i < form.id.length; i++){
+		form.id[i].value = Math.floor(Math.random() * (max - min) + min);
+	}
+	
+	makeCommand();
+	
+}
+function reset_attribute_modifiers(){
+	for(var i = 0; i < form.amount.length; i++){
+		form.amount[i].value = "";
+		form.slot[i].value = "";
+		form.id[i].value = "";
+	}
+	
+	makeCommand();
+	
+}
+</script>

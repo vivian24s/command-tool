@@ -1,0 +1,530 @@
+/* ========== ========== ========== ========== */
+/* コマンド生成ツールのCSS                     */
+/* ========== ========== ========== ========== */
+/* ========== ========== */
+/* 入力エリア            */
+/* ========== ========== */
+
+/* table(縦方向) */
+table.command-table-vertical{
+	float:left;
+	width:auto;
+	margin-right:1px;
+}
+.command-table-vertical tbody{
+	border-style: none;
+	float:left;
+}
+.command-table-vertical tr{
+	border-bottom: 1px solid white!important;
+	border-right: 1px solid white!important;
+}
+.command-table-vertical th{
+	width:145px;
+	background: #DDEBF7;
+	font-size: 12px;
+	border-style: none;
+	border-right: 1px solid white!important;
+}
+.command-table-vertical td{
+	width:250px;
+	height:33px;
+	padding:0px;
+	font-size: 12px;
+	border-style: none;
+}
+
+/* table(横方向) */
+table.command-table-horizontal{
+	float:left;
+	width:auto;
+	margin-right:1px!important;
+}
+.command-table-horizontal tr{
+}
+.command-table-horizontal tbody{
+	border-style: none;
+	font-size: 12px;
+	float:left;
+}
+.command-table-horizontal th{
+	background: #DDEBF7;
+	border-style: none;
+	border-right:solid 1px white!important;
+	border-bottom:solid 1px white!important;
+	padding-left:0!important;
+	padding-right:0!important;
+	text-align: center;
+}
+.command-table-horizontal td{
+	height:33px;
+	padding:0px;
+	font-size: 12px;
+	border-style: none;
+	border-right:solid 1px white!important;
+	border-bottom:solid 1px white!important;
+}
+.command-table-horizontal td:nth-of-type(1){
+	background-color:ghostwhite;
+}
+
+
+/* インプット */
+input.command-input{
+	padding: 0;
+	border-radius: 0;
+	font-size:12px;
+}
+
+input.command-input[type="text"],
+input.command-input[type="number"],
+input.command-input[type="search"]{
+	width:100%;
+	height:100%;
+	background-color:white;
+}
+
+select.command-input{
+	font-size: 12px;
+	padding:0px;
+	border-radius:0;
+	width:100%;
+	height:100%;
+	background-color:white;
+}
+.select2-container--default,.select2-selection--single{
+	font-size: 12px!important;
+	border-radius:0!important;	
+	width:100%!important;
+	height:100%!important;
+
+}
+
+/* ボタン */
+input[type="button"].command-input{
+	padding:0px;
+	border-radius: 0;
+	font-size: 12px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #fff;
+	border:1px solid #1B1B1B;
+	height:100%;
+	width:100%;
+}	
+input[type="button"].command-input:hover{
+	background: #1B1B1B;
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+/* ========== ========== ========== ========== */
+/* エンチャント(廃止予定)                      */
+/* ========== ========== ========== ========== */
+table.enchant-table{
+	float:left;
+	width:auto;
+}
+.enchant-table tbody{
+	border-style: none;
+	font-size: 12px;
+	float:left;
+}
+.enchant-table th{
+	background: #DDEBF7;
+	border-style: none;
+	border-right:solid 1px white;
+	border-bottom:solid 1px white;
+}
+.enchant-table td{
+	height:33px;
+	padding:0px;
+	font-size: 12px;
+	border-style: none;
+	border-right:solid 1px white;
+	border-bottom:solid 1px white;
+}
+.enchant-table td:nth-of-type(1){
+	background-color:ghostwhite;
+}
+/* インプット */
+.enchant-table input{
+	padding: 0;
+	border-radius: 0;
+	font-size:12px;
+}
+.enchant-table input[type="number"]{
+	width:100%;
+	height:100%;
+}
+
+/* ========== ========== */
+/* 出力エリア            */
+/* ========== ========== */
+
+/*コマンド出力ボックス*/
+#cmdOutput{
+	border-radius:	0;
+	font-size:		13px;
+	min-height: 100px;
+	margin: 0;
+}
+
+/*文字数出力エリア*/
+#count{
+	margin: 0;
+}
+
+/*コマンド生成ボタン/コマンドコピーボタン*/
+.cmdButton {
+	position: relative;
+	width:150px;
+	height:50px;
+	margin-top: 0;
+	margin-bottom:5px;
+	margin-right:5px;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #fff;
+	border:1px solid #1B1B1B;
+}
+.cmdButton:hover {
+	background: #1B1B1B;
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+/* ========== ========== ========== ========== */
+/* 旗と盾の模様(廃止予定)                      */
+/* ========== ========== ========== ========== */
+/* ========== ========== */
+/* ラジオボタン          */
+/* ========== ========== */
+.selection-group input[type="radio"] {
+  display: none;
+}
+
+/* 画像部分に余白を持たせる */
+.selection-group label img {
+	margin: 1px;
+	border:solid 1px black;
+	background: whitesmoke;
+}
+
+.dye img{
+	width: 32px;
+	height: 32px;
+}
+
+.banner img{
+	width: 20px;
+	height: 40px;
+}
+
+/* 選択されたラジオボタンの画像の背景をオレンジ色に変える */
+.selection-group input[type="radio"]:checked + label img {
+	border:solid 2px red;
+	background: yellow;
+}
+
+
+/* ========== ========== ========== ========== */
+/* 村人召喚コマンド(廃止予定)                  */
+/* ========== ========== ========== ========== */
+#table_detail tr:hover{
+ background-color:#ddd;
+ cursor:pointer;
+}
+#table_detail .hidden_row{
+ display:none;
+}
+
+/* ========== ========== ========== ========== */
+/* モーダルウインドウ(廃止予定)                */
+/* ========== ========== ========== ========== */
+
+/* ボタン（デザインはお好みで） */
+.my_modal_btn{
+	position: relative;
+	width: 100%;
+	padding: 0 5px;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #fff;
+	border:1px solid #1B1B1B;
+}
+/* チェックボックスを非表示 */
+#my_modal1{
+    display: none;
+}
+/* モーダル */
+.my_modal_body1{    
+    display: none;
+    position: fixed;
+    z-index: 900000;
+    top: 50%;
+    left: 40%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    display: none;
+    background-color: #FFF;
+    overflow-y: auto;
+    /* スマホ用スクロール */
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    /* お好みで */
+    width: 90%;
+    max-height: 80%;
+    max-width: 820px;
+}
+/* モーダル内ヘッダー */
+.my_modal_header{
+    padding: 15px 10px;
+    background-color: #23282D;
+    color: #FFF;
+    font-weight: bold;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 700000;
+    text-align: center;
+}
+/* クローズアイコン */
+.my_modal_close{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    cursor: pointer;
+}
+.my_modal_close_icon{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.my_modal_close_icon span::before,
+.my_modal_close_icon span::after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 16%;
+    margin: -8% 0 0 -42%;
+    background: #FFF;
+}
+.my_modal_close_icon span::before{
+    transform: rotate(-45deg);
+}
+.my_modal_close_icon span::after{
+    transform: rotate(45deg);
+}
+/* コンテンツ表示 */
+.my_modal_content{
+    padding: 5px 10px;
+}
+/* 背景を暗くする */
+.my_modal_overlay{
+    display: none;
+    position: fixed;
+    z-index: 800000;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    background-color: #333;
+    opacity: 0.3;
+    cursor: pointer;
+}
+/* チェック時オーバーレイとコンテンツを表示 */
+#my_modal1:checked ~ .my_modal_body1, #my_modal1:checked ~ .my_modal_overlay{
+    display: block;
+}
+
+
+/* ========== ========== ========== ========== */
+/* 名前　　　：モーダル                        */
+/* 参考サイト：https://dubdesign.net/download/html-css/modal-window/ */
+/* ========== ========== ========== ========== */
+.modal_wrap input[type="checkbox"] {
+  display: none;
+}
+
+.modal_overlay {
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.5s, transform 0s 0.5s;
+  transform: scale(0);
+}
+
+.modal_trigger {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.modal_content {
+    align-self: center;
+    width: 60%;
+    padding: 30px 30px 15px;
+    box-sizing: border-box;
+    background: #fff;
+    line-height: 1.4em;
+    transition: 0.5s;
+}
+
+.modal_content p {
+  padding-top: 0;
+}
+
+.close_button {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal_wrap input:checked ~ .modal_overlay {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s;
+}
+
+.modal_wrap input:checked ~ .modal_overlay .modal_content {
+  transform: translateY(20px);
+}
+
+.open_button {
+    color: #4f96f6;
+    background-color: #eeeeee;
+    font-weight: bold;
+    text-align: center;
+    cursor :pointer;
+    transition: all 0.3s;
+    display: block;
+    margin-top: 40px;
+    margin-bottom: 1px;
+    padding: 12px 2px;
+    max-width:300px;
+    text-decoration: none;
+}
+
+.open_button_cmd {
+    color: black;
+    background-color: white;
+    text-align: center;
+    cursor :pointer;
+    transition: all 0.3s;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+	padding: 0;
+    text-decoration: none;
+	border:1px solid #1B1B1B;
+	width:100%;
+	height:100%;
+}
+.open_button_cmd:hover {
+	background: #1B1B1B;
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+
+.open-button:active {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(2px);
+  transform: translateY(2px);/*下に動く*/
+
+}
+
+/*アイコンを表示*/
+.open-button:after {
+font-family: "Font Awesome 5 Free";
+  content: "\f2d0";
+    padding-left: 8px;
+}
+
+/*ラベルホバー時*/
+.open-button:hover {
+  color: #FFFFFF;
+  background-color: #4f96f6;
+  transition: .6s;
+}
+
+.modal_title2 {
+  font-size: 1.5em;
+	position: relative;
+	overflow: hidden;
+  padding-bottom: 10px;
+  margin-top:0;
+  margin-bottom: 0;
+}
+
+.modal_title2::before,
+.modal_title2::after{
+	content: "";
+	position: absolute;
+	bottom: 0;
+}
+
+/* h2 プライマリカラー*/
+.modal_title2:before{
+	border-bottom: 4px solid #6bb6ff;
+	width: 100%;
+}
+/* h2 セカンダリカラー*/
+.modal_title2:after{
+	border-bottom: 4px solid #c8e4ff;
+	width: 100%;
+}
+/* ラベルボタン*/
+label.command-input {
+    display: grid;
+    justify-items: center;
+    align-content: center;
+	padding:0px;
+	border-radius: 0;
+	font-size: 12px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #fff;
+	border:1px solid #1B1B1B;
+	height:50px;
+	width:160px;
+	display: inline-block;
+	vertical-align: middle;
+}
+label.command-input:hover {
+	background: #1B1B1B;
+	color: #fff;
+	cursor: pointer;
+	text-decoration: none;
+}
