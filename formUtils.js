@@ -165,7 +165,24 @@ function set_repairable(form) {}
 function set_stored_enchantments(form) {}
 function set_suspicious_stew_effects(form) {}
 function set_tool(form) {}
-function set_tooltip_display(form) {}
+function set_tooltip_display(form) {
+    // 値取得
+    const hideTooltip = form.hide_tooltip.value;
+    const selectedOptions = form.hidden_components && form.hidden_components.selectedOptions;
+    let hiddenComponents = [];
+    if (selectedOptions) {
+        for (let i = 0; i < selectedOptions.length; i++) {
+            hiddenComponents.push('"' + selectedOptions[i].value + '"');
+        }
+    }
+    // 何も設定されていなければ空文字
+    if (!hideTooltip && hiddenComponents.length === 0) return "";
+    // オブジェクト構築
+    let obj = [];
+    if (hideTooltip) obj.push(`hide_tooltip:${hideTooltip}`);
+    if (hiddenComponents.length > 0) obj.push(`hidden_components:[${hiddenComponents.join(",")}]`);
+    return `tooltip_display={${obj.join(",")}}`;
+}
 function set_tooltip_style(form) {}
 function set_trim(form) {
     let trim = {};

@@ -1282,6 +1282,35 @@
 	
 	<br clear="all">
 	
+	<!-- ツールチップ表示設定 -->
+	<b style="background-color:gainsboro">ツールチップ表示設定</b><br>
+	<table class="command-table-vertical">
+	  <tr>
+	    <th>ツールチップ表示</th>
+	    <td>
+	      <select class="command-input" name="hide_tooltip" onchange="makeCommand()">
+	        <option value="">未設定</option>
+	        <option value="false">表示</option>
+	        <option value="true">非表示</option>
+	      </select>
+	    </td>
+	  </tr>
+	  <tr>
+	    <th>隠すコンポーネント</th>
+	    <td>
+	      <select class="command-input" name="hidden_components" multiple size="4" onchange="makeCommand()">
+	        <option value="potion_contents">potion_contents</option>
+	        <option value="lore">lore</option>
+	        <option value="custom_name">custom_name</option>
+	        <option value="attribute_modifiers">attribute_modifiers</option>
+	        <!-- 必要に応じて他のコンポーネントも追加 -->
+	      </select>
+	      <div style="font-size:11px;color:#888;">CtrlまたはShiftで複数選択</div>
+	    </td>
+	  </tr>
+	</table>
+	<br>
+
 	<input class="cmdButton" type="button" name="uuid" onclick="generate_random_ids()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
 	<br>
 
@@ -1322,6 +1351,7 @@ function makeCommand(){
     var component_lore = set_lore(form);
     var component_potion_contents = set_potion_contents(form);
     var component_attribute_modifiers = set_attribute_modifiers(form);
+    var component_tooltip_display = set_tooltip_display(form);
     var components = [];
     if(component_custom_name !== ''){
         components.push(component_custom_name);
@@ -1334,6 +1364,9 @@ function makeCommand(){
     }
     if(component_attribute_modifiers !== ''){
         components.push(component_attribute_modifiers);
+    }
+    if(component_tooltip_display !== ''){
+        components.push(component_tooltip_display);
     }
     //giveコマンド生成ツール
     form.cmdOutput.value = buildGiveCommand(form, components);
