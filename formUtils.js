@@ -89,4 +89,53 @@ function set_attribute_modifiers(form) {
     }
 }
 
+function set_damage(form) {
+    if(form.damage.value !== ""){
+        return "damage=" + form.damage.value;
+    } else {
+        return "";
+    }
+}
+
+function set_unbreakable(form) {
+    if(form.unbreakable.value !== ""){
+        return "unbreakable={}";
+    } else {
+        return "";
+    }
+}
+
+function set_dyed_color(form) {
+    if(form.dyed_color_flag.value !== ""){
+        return "dyed_color=" + parseInt(form.dyed_color.value.substr(1, 6), 16);
+    } else {
+        return "";
+    }
+}
+
+function set_trim(form) {
+    let trim = {};
+    if(form.material.value !== "" && form.pattern.value !== ""){
+        trim.material = form.material.value;
+        trim.pattern = form.pattern.value;
+        return "trim=" + JSON.stringify(trim);
+    } else {
+        return "";
+    }
+}
+
+function set_enchantments(form) {
+    let enchantments = {};
+    for(let i = 0; i < form.enchantments_levels.length; i++){
+        if(form.enchantments_levels[i].value !== ""){
+            enchantments[form.enchantments_levels[i].title] = parseInt(form.enchantments_levels[i].value);
+        }
+    }
+    if(Object.keys(enchantments).length > 0){
+        return "enchantments=" + JSON.stringify(enchantments);
+    } else {
+        return "";
+    }
+}
+
 // 必要に応じて他の関数も追加してください。
