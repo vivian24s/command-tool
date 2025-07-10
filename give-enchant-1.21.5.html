@@ -1,0 +1,1323 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://minecraft-blog.net/wp-content/themes/swell_child/01_command-je/common.css" />
+<script src="https://minecraft-blog.net/wp-content/themes/swell_child/01_command-je/common.js" ></script>
+
+<script src="https://minecraft-blog.net/wp-content/themes/swell_child/01_command-je/block-data-1.21.js" ></script>
+
+<form name="form">
+	
+	<b style="background-color:gainsboro">1.基本設定</b><br>
+
+	<table class="command-table-vertical">
+		<tr>
+			<th>プレイヤー</th>
+			<td><input class="command-input" type="text" name="targets" value="@p" placeholder="必須" onchange="makeCommand()"></td>
+		</tr>
+
+		<tr>
+			<th>アイテム</th>
+			<td><select class="select2_01 command-input" name="item" onchange="makeCommand()"></select></td>
+		</tr>
+		
+		<tr>
+			<th>個数</th>
+			<td><input class="command-input" type="number" min="1" max="64" name="count" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+
+		<tr>
+			<th>新しい名前</th>
+			<td><input class="command-input" type="text" name="custom_name" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+
+		<tr>
+			<th>説明文1</th>
+			<td><input class="command-input" type="text" name="lore" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+		<tr>
+			<th>説明文2</th>
+			<td><input class="command-input" type="text" name="lore" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+		<tr>
+			<th>説明文3</th>
+			<td><input class="command-input" type="text" name="lore" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+		<tr>
+			<th>説明文4</th>
+			<td><input class="command-input" type="text" name="lore" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+
+		<tr>
+			<th>耐久値ダメージ</th>
+			<td><input class="command-input" type="number" min="0" name="damage" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+		
+		<tr>
+			<th>不可壊</th>
+			<td>
+				<select class="command-input" size="1" name="unbreakable" onchange="makeCommand()">
+					<option value="">未設定</option>
+					<option value="true">設定</option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<th rowspan="2">色(革防具のみ)</th>
+			<td>
+				<select class="command-input" size="1" name="dyed_color_flag" onchange="makeCommand()">
+					<option value="">未設定</option>
+					<option value="true">設定</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+
+			<td><input type="color" name="dyed_color" value="" onchange="makeCommand()"></td>
+		</tr>
+		
+		<tr>
+			<th>デザインの色</th>
+			<td>
+				<select class="command-input" size="1" name="material" onchange="makeCommand()">
+					<option value="">未設定</option>
+					<option value="redstone">レッドストーンダスト</option>
+					<option value="amethyst">アメジストの欠片</option>
+					<option value="iron">鉄インゴット</option>
+					<option value="copper">銅インゴット</option>
+					<option value="gold">金インゴット</option>
+					<option value="netherite">ネザライトインゴット</option>
+					<option value="emerald">エメラルド</option>
+					<option value="lapis">ラピスラズリ</option>
+					<option value="diamond">ダイヤモンド</option>
+					<option value="quartz">ネザークォーツ</option>
+				</select>
+			</td>
+		</tr>
+		
+		<tr>
+			<th>デザイン</th>
+			<td>
+				<select class="command-input" size="1" name="pattern" onchange="makeCommand()">
+					<option value="">未設定</option>
+					<option value="sentry">鍛冶型-略奪者風の装飾</option>
+					<option value="vex">鍛冶型-ヴェックス風の装飾</option>
+					<option value="wild">鍛冶型-密林風の装飾</option>
+					<option value="coast">鍛冶型-海洋風の装飾</option>
+					<option value="dune">鍛冶型-砂丘風の装飾</option>
+					<option value="wayfinder">鍛冶型-先駆者風の装飾</option>
+					<option value="raiser">鍛冶型-牧者風の装飾</option>
+					<option value="shaper">鍛冶型-職人風の装飾</option>
+					<option value="host">鍛冶型-主人風の装飾</option>
+					<option value="ward">鍛冶型-藍獄風の装飾</option>
+					<option value="silence">鍛冶型-静寂の装飾</option>
+					<option value="tide">鍛冶型-潮流風の装飾</option>
+					<option value="snout">鍛冶型-ブタの鼻風の装飾</option>
+					<option value="rib">鍛冶型-あばら模様の装飾</option>
+					<option value="eye">鍛冶型-要塞風の装飾</option>
+					<option value="spire">鍛冶型-尖塔風の装飾</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	
+	<table class="command-table-vertical">
+		<tr>
+			<th>防具デザイン</th>
+		</tr>
+		<tr>
+			<td>
+			
+				<div style="position: relative;">
+			
+					<!-- 鍛冶型-デザイン -->
+					<img name="result0" class="alignnone" title="" src="https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_防具立て.png" alt="" width="180" height="225"/>
+
+					<!-- レギンス -->
+					<div style="position: absolute; top: 0px; left: 0px;"><img name="result5" class="alignnone" title="" src="https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png" alt="" width="180" height="225"/></div>
+					<div style="position: absolute; top: 0px; left: 0px;"><img name="result6" class="alignnone" title="" src="https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png" alt="" width="180" height="225"/></div>
+
+					<!-- チェストプレート -->
+					<div style="position: absolute; top: 0px; left: 0px;"><img name="result3" class="alignnone" title="" src="https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png" alt="" width="180" height="225"/></div>
+					<div style="position: absolute; top: 0px; left: 0px;"><img name="result4" class="alignnone" title="" src="https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png" alt="" width="180" height="225"/></div>
+
+					<!-- ヘルメット -->
+					<div style="position: absolute; top: 0px; left: 0px;"><img name="result1" class="alignnone" title="" src="https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png" alt="" width="180" height="225"/></div>
+					<div style="position: absolute; top: 0px; left: 0px;"><img name="result2" class="alignnone" title="" src="https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png" alt="" width="180" height="225"/></div>
+
+					<!-- ブーツ -->
+					<div style="position: absolute; top: 0px; left: 0px;"><img name="result7" class="alignnone" title="" src="https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png" alt="" width="180" height="225"/></div>
+					<div style="position: absolute; top: 0px; left: 0px;"><img name="result8" class="alignnone" title="" src="https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png" alt="" width="180" height="225"/></div>
+			
+				</div>
+			
+			</td>
+		</tr>
+	</table>
+	
+	<br clear="all">
+	
+	<b style="background-color:gainsboro">2.エンチャント設定</b><br>
+
+		<table class="command-table-horizontal">
+
+			<tr>
+				<th style="width:100px;"><strong>エンチャント</strong></th>
+				<th style="width:60px;"><strong>レベル</strong></th>
+			</tr>
+
+			<tr>
+				<td>ダメージ軽減</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="protection" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>火炎耐性</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="fire_protection" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>落下耐性</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="feather_falling" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>爆発耐性</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="blast_protection" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>飛び道具耐性</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="projectile_protection" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>水中呼吸</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="respiration" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>水中採掘</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="aqua_affinity" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>棘の鎧</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="thorns" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>水中歩行</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="depth_strider" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>氷渡り</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="frost_walker" onchange="makeCommand()"></td>
+			</tr>
+			
+			<tr>
+				<td>束縛の呪い</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="binding_curse" onchange="makeCommand()"></td>
+			</tr>
+
+		</table>
+
+
+		<table class="command-table-horizontal">
+
+			<tr>
+				<th style="width:100px;"><strong>エンチャント</strong></th>
+				<th style="width:60px;"><strong>レベル</strong></th>
+			</tr>
+
+			<tr>
+				<td>ダメージ増加</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="sharpness" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>アンデット特効</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="smite" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>虫特効</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="bane_of_arthropods" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>ノックバック</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="knockback" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>火属性</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="fire_aspect" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>ドロップ増加</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="looting" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>範囲ダメージ増加</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="sweeping_edge" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>効率強化</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="efficiency" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>シルクタッチ</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="silk_touch" onchange="makeCommand()"></td>
+			</tr>
+			
+			<tr>
+				<td>耐久力</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="unbreaking" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>幸運</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="fortune" onchange="makeCommand()"></td>
+			</tr>
+
+		</table>
+
+
+		<table class="command-table-horizontal">
+
+			<tr>
+				<th style="width:100px;"><strong>エンチャント</strong></th>
+				<th style="width:60px;"><strong>レベル</strong></th>
+			</tr>
+
+			<tr>
+				<td>射撃ダメージ増加</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="power" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>パンチ</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="punch" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>フレイム</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="flame" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>無限</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="infinity" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>宝釣り</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="luck_of_the_sea" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>入れ食い</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="lure" onchange="makeCommand()"></td>
+			</tr>
+			
+			<tr>
+				<td>修繕</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="mending" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>消滅の呪い</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="vanishing_curse" onchange="makeCommand()"></td>
+			</tr>
+			
+			<tr>
+				<td>忠誠</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="loyalty" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>水生特効</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="impaling" onchange="makeCommand()"></td>
+			</tr>
+			
+			<tr>
+				<td>激流</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="riptide" onchange="makeCommand()"></td>
+			</tr>
+
+		</table>
+
+
+		<table class="command-table-horizontal">
+
+			<tr>
+				<th style="width:100px;"><strong>エンチャント</strong></th>
+				<th style="width:60px;"><strong>レベル</strong></th>
+			</tr>
+
+			<tr>
+				<td>召雷</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="channeling" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>高速装填</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="quick_charge" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>拡散</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="multishot" onchange="makeCommand()"></td>
+			</tr>
+
+			<tr>
+				<td>貫通</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="piercing" onchange="makeCommand()"></td>
+			</tr>
+			
+			<tr>
+				<td>ソウルスピード</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="soul_speed" onchange="makeCommand()"></td>
+			</tr>
+			
+			<tr>
+				<td>スニーク速度上昇</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="swift_sneak" onchange="makeCommand()"></td>
+			</tr>
+			
+			<tr>
+				<td>重撃</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="density" onchange="makeCommand()"></td>
+			</tr>
+			
+			<tr>
+				<td>防具貫通</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="breach" onchange="makeCommand()"></td>
+			</tr>
+			
+			<tr>
+				<td>ウィンドバースト</td>
+				<td><input class="command-input" type="number" name="enchantments_levels" value="" maxlength="3" placeholder="未設定" min="0" max="255" title="wind_burst" onchange="makeCommand()"></td>
+			</tr>
+			
+		</table>
+
+	<br clear="all">
+	
+	<input class="cmdButton" type="button" name="" onclick="reset_enchantments()" value="リセット">
+	
+	<br clear="all">
+	
+	<b style="background-color:gainsboro">3.属性設定</b><br>
+	
+		<table class="command-table-horizontal">
+
+			<tr>
+				<th style="width:140px;">属性</th>
+				<th style="width:60px;">加算値</th>
+				<th style="width:80px;">ID</th>
+				<th style="width:80px;">スロット</th>
+			</tr>
+			
+			<tr>
+				<td>最大体力</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="max_health" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>衝撃吸収レベルの上限</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="max_absorption" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>Mobの追跡範囲</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="follow_range" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>ノックバック耐性</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="knockback_resistance" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>移動速度</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="movement_speed" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>攻撃力</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="attack_damage" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>防御力</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="armor" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>防具強度</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="armor_toughness" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>ノックバック</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="attack_knockback" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>サイズ</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="scale" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>段差上限</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="step_height" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>攻撃速度</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="attack_speed" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>運</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="luck" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>ブロック操作範囲</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="block_interaction_range" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+		</table>
+
+			
+		<table class="command-table-horizontal">
+			
+			<tr>
+				<th style="width:140px;">属性</th>
+				<th style="width:60px;">加算値</th>
+				<th style="width:80px;">ID</th>
+				<th style="width:80px;">スロット</th>
+			</tr>
+
+			<tr>
+				<td>エンティティ操作範囲</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="entity_interaction_range" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>重力</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="gravity" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>安全落下距離</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="safe_fall_distance" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>落下ダメージ倍率</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="fall_damage_multiplier" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>跳躍力</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="jump_strength" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>採掘速度</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="mining_efficiency" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>スニーク速度</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="sneaking_speed" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>水中採掘速度</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="submerged_mining_speed" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>なぎ払いダメージ比率</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="sweeping_damage_ratio" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>炎上時間</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="burning_time" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>爆発ノックバック耐性</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="explosion_knockback_resistance" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>移動効率</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="movement_efficiency" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>酸素ボーナス</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="oxygen_bonus" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>水中移動効率</td>
+				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="water_movement_efficiency" onchange="makeCommand()"></td>
+				<td><input class="command-input" type="number" name="id" value="" maxlength="10" placeholder="任意" onchange="makeCommand()"></td>
+				<td>
+					<select class="command-input" size="1" name="slot" style="padding: 1px 0px;" onchange="makeCommand()">
+						<option value="">未設定</option>
+						<option value="any">全て</option>
+						<option value="hand">両手</option>
+						<option value="armor">防具</option>
+						<option value="mainhand">右手</option>
+						<option value="offhand">左手</option>
+						<option value="head">ヘッド</option>
+						<option value="chest">チェスト</option>
+						<option value="legs">レギンス</option>
+						<option value="feet">ブーツ</option>
+					</select>
+				</td>
+			</tr>
+
+		</table>
+	
+	<br clear="all">
+	
+	<input class="cmdButton" type="button" name="uuid" onclick="setID()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
+	<br>
+
+	<br clear="all">
+
+	<textarea id="cmdOutput" name="cmdOutput" rows="5" style="width:100%;"></textarea>
+	<div id="count">[文字数：0]</div>
+	<input class="cmdButton" type="button" name="copy" onclick="cmdCopy('cmdOutput')" value="コマンドコピー">
+
+</form>
+
+<script type="text/javascript">
+
+	//グローバル変数定義
+	command = "";
+	var component_custom_name = "";
+	var component_lore = "";
+	var component_damage = "";
+	var component_unbreakable = "";
+	var component_dyed_color = "";
+	var component_trim = "";
+	var component_enchantments = "";
+	var component_attribute_modifiers = "";
+	
+//初期設定
+$(document).ready(function() {
+	
+	//プルダウン読み込み
+    $('.select2_01').select2({
+		data: block_data
+	});
+	setID();
+	makeCommand();
+
+});
+	
+function set_custom_name(){
+	
+	//変数定義
+	custom_name = {};
+	
+	//コンポーネント組み込み
+	if(form.custom_name.value !== ""){
+		component_custom_name = "custom_name='" + form.custom_name.value + "'";
+	}else{
+		component_custom_name = "";
+	}
+}
+	
+function set_lore(){
+	
+	//変数定義
+	lore = [];
+	var text = {};
+	//コンポーネント組み込み
+	if(form.lore[0].value !== ""){
+		text.text = form.lore[0].value
+		lore.push("'" + JSON.stringify(text) + "'");
+	}
+	if(form.lore[1].value !== ""){
+		text.text = form.lore[1].value
+		lore.push("'" + JSON.stringify(text) + "'");
+	}
+	if(form.lore[2].value !== ""){
+		text.text = form.lore[2].value
+		lore.push("'" + JSON.stringify(text) + "'");
+	}
+	if(form.lore[3].value !== ""){
+		text.text = form.lore[3].value
+		lore.push("'" + JSON.stringify(text) + "'");
+	}
+	
+	if(lore.length > 0){
+		component_lore = "lore=[" + lore + "]";
+	}else{
+		component_lore = "";
+	}
+	
+}
+	
+function set_damage(){
+	
+	//変数定義
+	damage = {};
+	
+	//コンポーネント組み込み
+	if(form.damage.value !== ""){
+		component_damage = "damage=" + parseInt(form.damage.value);
+	}else{
+		component_damage = "";
+	}
+	
+}
+	
+function set_unbreakable(){
+	
+	//コンポーネント組み込み
+	if(form.unbreakable.value !== ""){
+		component_unbreakable = "unbreakable={}";
+	}else{
+		component_unbreakable = "";
+	}
+	
+}
+
+function set_dyed_color(){
+	
+	//コンポーネント組み込み
+	if(form.dyed_color_flag.value !== ""){
+		component_dyed_color = "dyed_color=" + parseInt(form.dyed_color.value.substr(1, 6), 16);
+	}else{
+		component_dyed_color = "";
+	}
+
+}
+
+function set_trim(){
+	
+	//変数定義
+	var trim = {};
+	
+	//コンポーネント組み込み
+	if(form.material.value !== "" && form.pattern.value !== ""){
+		trim.material = form.material.value;
+		trim.pattern = form.pattern.value;
+		component_trim = "trim=" + JSON.stringify(trim);
+	} else {
+		component_trim = "";
+	}
+
+}
+	
+function set_enchantments(){
+	var enchantments = {};
+	for(var i = 0; i < form.enchantments_levels.length; i++){
+		if(form.enchantments_levels[i].value !== ""){
+			enchantments[form.enchantments_levels[i].title] = parseInt(form.enchantments_levels[i].value);
+		}
+	}
+	if(Object.keys(enchantments).length > 0){
+		component_enchantments = "enchantments=" + JSON.stringify(enchantments);
+	}else{
+		component_enchantments = "";
+	}
+}
+	
+function set_attribute_modifiers(){
+	var attribute_modifiers = [];
+	for(var i = 0; i < form.amount.length; i++){
+		if(form.amount[i].value !== ""){
+			str = {};
+			str.type = form.amount[i].title;
+			str.amount = parseFloat(form.amount[i].value);
+			str.operation = "add_value";
+			if(form.slot[i].value !== ""){
+				str.slot = form.slot[i].value;
+			}
+			if(form.id[i].value !== ""){
+				str.id = form.id[i].value;
+			}
+			attribute_modifiers.push(str);
+		}
+	}
+	if(Object.keys(attribute_modifiers).length > 0){
+		component_attribute_modifiers = "attribute_modifiers=" + JSON.stringify(attribute_modifiers);
+	}else{
+		component_attribute_modifiers = "";
+	}
+}
+
+function setID(){
+	var min = -1000000000;
+	var max = 1000000000;
+	for(var i = 0; i < form.id.length; i++){
+		form.id[i].value = Math.floor(Math.random() * (max - min) + min);
+	}
+	
+	makeCommand();
+	
+}
+function reset_attribute_modifiers(){
+	for(var i = 0; i < form.amount.length; i++){
+		form.amount[i].value = "";
+		form.slot[i].value = "";
+		form.id[i].value = "";
+	}
+	
+	makeCommand();
+	
+}
+function reset_enchantments(){
+	for(var i = 0; i < form.enchantments_levels.length; i++){
+		form.enchantments_levels[i].value = "";
+	}
+	
+	makeCommand();
+	
+}
+	
+function set_armor_image(){
+	
+	//和名取得
+	image_item = getTextById(form.item.value);
+	image_pattern = getPatternTextById(form.pattern.value);
+	image_material = getMaterialTextById(form.material.value);
+	
+	//初期化
+	document.result1.src = "https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png";
+	document.result2.src = "https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png";
+	document.result3.src = "https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png";
+	document.result4.src = "https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png";
+	document.result5.src = "https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png";
+	document.result6.src = "https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png";
+	document.result7.src = "https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png";
+	document.result8.src = "https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_未設定.png";
+	
+	//ヘルメット
+	if (image_item === '革の帽子' || image_item === 'チェーンのヘルメット' || image_item === '鉄のヘルメット' || image_item === '金のヘルメット' || image_item === 'ダイヤモンドのヘルメット' || image_item === 'ネザライトのヘルメット' || image_item === 'カメの甲羅') {
+		
+		document.result1.src = "https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_" + image_item + ".png";
+		
+		if (form.pattern.value !== '' && form.material.value !== '') {
+			document.result2.src = "https://minecraft-media.com/minecraft-blog/command-armor/ヘルメット-" + image_pattern.substr( 4 ) + "-" + image_material + ".png";
+		}
+	
+	}
+	
+	//チェストプレート
+	if (image_item === '革の上着' || image_item === 'チェーンのチェストプレート' || image_item === '鉄のチェストプレート' || image_item === '金のチェストプレート' || image_item === 'ダイヤモンドのチェストプレート' || image_item === 'ネザライトのチェストプレート') {
+		
+		document.result3.src = "https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_" + image_item + ".png";
+		
+		if (form.pattern.value !== '' && form.material.value !== '') {
+			document.result4.src = "https://minecraft-media.com/minecraft-blog/command-armor/チェストプレート-" + image_pattern.substr( 4 ) + "-" + image_material + ".png";
+		}
+	
+	}
+	
+	//ヘルメット
+	if (image_item === '革のズボン' || image_item === 'チェーンのレギンス' || image_item === '鉄のレギンス' || image_item === '金のレギンス' || image_item === 'ダイヤモンドのレギンス' || image_item === 'ネザライトのレギンス') {
+		
+		document.result5.src = "https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_" + image_item + ".png";
+		
+		if (form.pattern.value !== '' && form.material.value !== '') {
+			document.result6.src = "https://minecraft-media.com/minecraft-blog/command-armor/レギンス-" + image_pattern.substr( 4 ) + "-" + image_material + ".png";
+		}
+	
+	}
+	
+	//ヘルメット
+	if (image_item === '革のブーツ' || image_item === 'チェーンのブーツ' || image_item === '鉄のブーツ' || image_item === '金のブーツ' || image_item === 'ダイヤモンドのブーツ' || image_item === 'ネザライトのブーツ') {
+		
+		document.result7.src = "https://minecraft-media.com/minecraft-blog/command-armor/鍛冶型_" + image_item + ".png";
+		
+		if (form.pattern.value !== '' && form.material.value !== '') {
+			document.result8.src = "https://minecraft-media.com/minecraft-blog/command-armor/ブーツ-" + image_pattern.substr( 4 ) + "-" + image_material + ".png";
+		}
+	
+	}
+	
+}
+
+//コマンド生成
+function makeCommand(){
+	
+	set_custom_name();
+	set_lore();
+	set_damage();
+	set_unbreakable();
+	set_dyed_color();
+	set_trim();
+	set_enchantments();
+	set_attribute_modifiers();
+	
+	set_armor_image();
+	
+	var components = [];
+	
+	if(component_custom_name !== ''){
+		components.push(component_custom_name);
+	}
+	if(component_lore !== ''){
+		components.push(component_lore);
+	}
+	if(component_damage !== ''){
+		components.push(component_damage);
+	}
+	if(component_unbreakable !== ''){
+		components.push(component_unbreakable);
+	}
+	if(component_dyed_color !== ''){
+		components.push(component_dyed_color);
+	}
+	if(component_trim !== ''){
+		components.push(component_trim);
+	}
+	if(component_enchantments !== ''){
+		components.push(component_enchantments);
+	}
+	if(component_attribute_modifiers !== ''){
+		components.push(component_attribute_modifiers);
+	}
+	
+	//====================
+	// 出力
+	//====================
+	if (form.count.value == "") {
+		form.cmdOutput.value = "/give " + form.targets.value + " " + form.item.value + "[" + components + "]";
+	}else{
+		form.cmdOutput.value = "/give " + form.targets.value + " " + form.item.value + "[" + components + "] " + form.count.value;
+	}
+	
+	//文字数出力
+	strLenPrint();
+	
+}
+	
+
+</script>
