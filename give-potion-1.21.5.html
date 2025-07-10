@@ -1281,6 +1281,9 @@
 		</table>
 	
 	<br clear="all">
+
+	<input class="cmdButton" type="button" name="uuid" onclick="generate_random_ids()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
+	<br>
 	
 	<!-- ツールチップ表示設定 -->
 	<b style="background-color:gainsboro">ツールチップ表示設定</b><br>
@@ -1298,20 +1301,16 @@
 	  <tr>
 	    <th>隠すコンポーネント</th>
 	    <td>
-	      <select class="command-input" name="hidden_components" multiple size="4" onchange="makeCommand()">
+	      <select class="command-input select2-multi" name="hidden_components" multiple size="4" onchange="makeCommand()">
 	        <option value="potion_contents">potion_contents</option>
 	        <option value="lore">lore</option>
 	        <option value="custom_name">custom_name</option>
 	        <option value="attribute_modifiers">attribute_modifiers</option>
 	        <!-- 必要に応じて他のコンポーネントも追加 -->
 	      </select>
-	      <div style="font-size:11px;color:#888;">CtrlまたはShiftで複数選択</div>
 	    </td>
 	  </tr>
 	</table>
-	<br>
-
-	<input class="cmdButton" type="button" name="uuid" onclick="generate_random_ids()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
 	<br>
 
 	<br clear="all">
@@ -1333,6 +1332,7 @@
 	
 //初期設定
 $(document).ready(function() {
+	$('.select2-multi').select2();
 	generate_random_ids();
 	makeCommand();
 });
