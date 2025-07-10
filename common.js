@@ -84,3 +84,18 @@ function cmdCopy(str){
 	// 選択しているテキストをクリップボードにコピーする
 	document.execCommand("Copy");
 }
+
+// ---------- ---------- ---------- ---------- ---------- ----------
+// 関数名：コマンド文字列生成（/give用）
+//
+// 概要　：フォームとコンポーネント配列から/giveコマンド文字列を生成
+// 使い方：buildGiveCommand(form, components)
+// ---------- ---------- ---------- ---------- ---------- ----------
+function buildGiveCommand(form, components) {
+    let base = "/give " + form.targets.value + " " + form.item.value + "[" + components + "]";
+    if (form.count && form.count.value !== "") {
+        return base + " " + form.count.value;
+    } else {
+        return base;
+    }
+}

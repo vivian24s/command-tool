@@ -1161,14 +1161,8 @@ function makeCommand(){
     if(component_attribute_modifiers !== ''){
         components.push(component_attribute_modifiers);
     }
-    //====================
-    // 出力
-    //====================
-    if (form.count.value == "") {
-        form.cmdOutput.value = "/give " + form.targets.value + " " + form.item.value + "[" + components + "]";
-    }else{
-        form.cmdOutput.value = "/give " + form.targets.value + " " + form.item.value + "[" + components + "] " + form.count.value;
-    }
+    //giveコマンド生成ツール
+    form.cmdOutput.value = buildGiveCommand(form, components);
     //文字数出力
     strLenPrint();
 }
