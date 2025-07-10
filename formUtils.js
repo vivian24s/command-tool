@@ -175,11 +175,11 @@ function set_tooltip_display(form) {
             hiddenComponents.push('"' + selectedOptions[i].value + '"');
         }
     }
-    // 何も設定されていなければ空文字
-    if (!hideTooltip && hiddenComponents.length === 0) return "";
+    // hide_tooltipが未設定なら出力しない
+    if (!hideTooltip) return "";
     // オブジェクト構築
     let obj = [];
-    if (hideTooltip) obj.push(`hide_tooltip:${hideTooltip}`);
+    obj.push(`hide_tooltip:${hideTooltip}`);
     if (hiddenComponents.length > 0) obj.push(`hidden_components:[${hiddenComponents.join(",")}]`);
     return `tooltip_display={${obj.join(",")}}`;
 }
