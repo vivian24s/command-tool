@@ -1282,7 +1282,7 @@
 	
 	<br clear="all">
 	
-	<input class="cmdButton" type="button" name="uuid" onclick="setID()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
+	<input class="cmdButton" type="button" name="uuid" onclick="set_attribute_modifiers()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
 	<br>
 
 	<br clear="all">
@@ -1304,10 +1304,18 @@
 	
 //初期設定
 $(document).ready(function() {
-	//プルダウン読み込み
-	setID();
+	set_attribute_modifiers();
 	makeCommand();
 });
+
+function set_attribute_modifiers(){
+	var min = -1000000000;
+	var max = 1000000000;
+	for(var i = 0; i < form.id.length; i++){
+		form.id[i].value = Math.floor(Math.random() * (max - min) + min);
+	}
+	makeCommand();
+}
 
 function makeCommand(){
     var component_custom_name = set_custom_name(form);
@@ -1339,16 +1347,6 @@ function makeCommand(){
     strLenPrint();
 }
 
-function setID(){
-	var min = -1000000000;
-	var max = 1000000000;
-	for(var i = 0; i < form.id.length; i++){
-		form.id[i].value = Math.floor(Math.random() * (max - min) + min);
-	}
-	
-	makeCommand();
-	
-}
 function reset_attribute_modifiers(){
 	for(var i = 0; i < form.amount.length; i++){
 		form.amount[i].value = "";

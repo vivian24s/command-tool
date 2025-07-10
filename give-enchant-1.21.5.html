@@ -816,7 +816,7 @@
 					</select>
 				</td>
 			</tr>
-			
+
 			<tr>
 				<td>採掘速度</td>
 				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="mining_efficiency" onchange="makeCommand()"></td>
@@ -1001,7 +1001,7 @@
 
 	<br clear="all">
 	
-	<input class="cmdButton" type="button" name="uuid" onclick="setID()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
+	<input class="cmdButton" type="button" name="uuid" onclick="set_attribute_modifiers()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
 	<br>
 
 	<br clear="all">
@@ -1027,25 +1027,22 @@
 	
 //初期設定
 $(document).ready(function() {
-	
 	//プルダウン読み込み
     $('.select2_01').select2({
 		data: block_data
 	});
-	setID();
+	set_attribute_modifiers();
 	makeCommand();
 
 });
-	
-function setID(){
+
+function set_attribute_modifiers(){
 	var min = -1000000000;
 	var max = 1000000000;
 	for(var i = 0; i < form.id.length; i++){
 		form.id[i].value = Math.floor(Math.random() * (max - min) + min);
 	}
-	
 	makeCommand();
-	
 }
 function reset_attribute_modifiers(){
 	for(var i = 0; i < form.amount.length; i++){
