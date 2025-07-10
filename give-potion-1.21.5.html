@@ -1300,7 +1300,7 @@
 	  <tr>
 	    <th>隠すコンポーネント</th>
 	    <td>
-	      <select class="command-input select2-multi" name="hidden_components" multiple size="4" onchange="makeCommand()">
+	      <select class="command-input" name="hidden_components" multiple size="4" onchange="makeCommand()">
 	        <option value="potion_contents">potion_contents</option>
 	        <option value="lore">lore</option>
 	        <option value="custom_name">custom_name</option>
@@ -1331,7 +1331,6 @@
 	
 //初期設定
 $(document).ready(function() {
-	$('.select2-multi').select2();
 	generate_random_ids();
 	makeCommand();
 });
