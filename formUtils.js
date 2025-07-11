@@ -66,9 +66,9 @@ function set_base_color(form) {
     }
 }
 function set_bees(form) {
-    var entity_data = form.bees_entity_data && form.bees_entity_data.value.trim();
-    var ticks_in_hive = form.bees_ticks_in_hive && form.bees_ticks_in_hive.value.trim();
-    var min_ticks_in_hive = form.bees_min_ticks_in_hive && form.bees_min_ticks_in_hive.value.trim();
+    var entity_data = form.bees_entity_data && form.bees_entity_data.value;
+    var ticks_in_hive = form.bees_ticks_in_hive && form.bees_ticks_in_hive.value;
+    var min_ticks_in_hive = form.bees_min_ticks_in_hive && form.bees_min_ticks_in_hive.value;
     if (!entity_data && !ticks_in_hive && !min_ticks_in_hive) return '';
     var bee = {};
     if (entity_data) bee.entity_data = entity_data;
