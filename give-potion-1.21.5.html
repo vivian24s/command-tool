@@ -96,7 +96,7 @@
 		<tr>
 			<th rowspan="2">ポーションの色</th>
 			<td>
-				<select class="command-input" size="1" name="custom_color_flag" onchange="makeCommand()">
+				<select class="command-input" name="custom_color_flag" onchange="makeCommand()">
 					<option value="">未設定</option>
 					<option value="true">設定</option>
 				</select>
@@ -104,7 +104,20 @@
 		</tr>
 
 		<tr>
-			<td><input class="command-input" type="color" name="custom_color" value="" onchange="makeCommand()" style="width:100%;height:100%;"></td>
+			<td><input class="command-input" type="color" name="custom_color" value="#000000" onchange="makeCommand()" style="width:100%;height:100%;"></td>
+		</tr>
+
+		<tr>
+			<th>レアリティ</th>
+			<td>
+				<select class="command-input" name="rarity" onchange="makeCommand()">
+					<option value="">未設定</option>
+					<option value="common">common（コモン）</option>
+					<option value="uncommon">uncommon（アンコモン）</option>
+					<option value="rare">rare（レア）</option>
+					<option value="epic">epic（エピック）</option>
+				</select>
+			</td>
 		</tr>
 	
 	</table>
@@ -140,8 +153,8 @@
 	    <td>
 	      <select class="command-input" name="hide_tooltip" onchange="makeCommand()">
 	        <option value="">未設定</option>
-	        <option value="false">表示</option>
-	        <option value="true">非表示</option>
+	        <option value="false">選択したものを非表示</option>
+	        <option value="true">全て非表示</option>
 	      </select>
 	    </td>
 	  </tr>
@@ -1345,6 +1358,7 @@ function makeCommand(){
     var component_potion_contents = set_potion_contents(form);
     var component_attribute_modifiers = set_attribute_modifiers(form);
     var component_tooltip_display = set_tooltip_display(form);
+    var component_rarity = set_rarity(form);
     var components = [];
     if(component_custom_name !== ''){
         components.push(component_custom_name);
@@ -1360,6 +1374,9 @@ function makeCommand(){
     }
     if(component_tooltip_display !== ''){
         components.push(component_tooltip_display);
+    }
+    if(component_rarity !== ''){
+        components.push(component_rarity);
     }
     //giveコマンド生成ツール
     form.cmdOutput.value = buildGiveCommand(form, components);

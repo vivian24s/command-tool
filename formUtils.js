@@ -158,7 +158,13 @@ function set_potion_duration_scale(form) {}
 function set_profile(form) {}
 function set_provides_banner_patterns(form) {}
 function set_provides_trim_material(form) {}
-function set_rarity(form) {}
+function set_rarity(form) {
+    if (form.rarity && form.rarity.value !== "") {
+        return `rarity=\"${form.rarity.value}\"`;
+    } else {
+        return "";
+    }
+}
 function set_recipes(form) {}
 function set_repair_cost(form) {}
 function set_repairable(form) {}
