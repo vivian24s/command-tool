@@ -1318,7 +1318,7 @@
 	
 	<br clear="all">
 
-	<input class="cmdButton" type="button" name="uuid" onclick="generate_random_ids()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
+	<input class="cmdButton" type="button" name="uuid" onclick="set_id_attribute_modifiers()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
 
 	<br clear="all">
 
@@ -1339,18 +1339,9 @@
 	
 //初期設定
 $(document).ready(function() {
-	generate_random_ids();
+	set_id_attribute_modifiers();
 	makeCommand();
 });
-
-function generate_random_ids(){
-	var min = -1000000000;
-	var max = 1000000000;
-	for(var i = 0; i < form.id.length; i++){
-		form.id[i].value = Math.floor(Math.random() * (max - min) + min);
-	}
-	makeCommand();
-}
 
 function makeCommand(){
     var component_custom_name = set_custom_name(form);
@@ -1384,14 +1375,4 @@ function makeCommand(){
     strLenPrint();
 }
 
-function reset_attribute_modifiers(){
-	for(var i = 0; i < form.amount.length; i++){
-		form.amount[i].value = "";
-		form.slot[i].value = "";
-		form.id[i].value = "";
-	}
-	
-	makeCommand();
-	
-}
 </script>

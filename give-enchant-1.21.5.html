@@ -1043,7 +1043,7 @@
 
 	<br clear="all">
 	
-	<input class="cmdButton" type="button" name="uuid" onclick="generate_random_ids()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
+	<input class="cmdButton" type="button" name="uuid" onclick="set_id_attribute_modifiers()" value="ID自動変更"> <input class="cmdButton" type="button" name="uuid" onclick="reset_attribute_modifiers()" value="属性リセット">
 	<br>
 
 	<br clear="all">
@@ -1074,37 +1074,10 @@ $(document).ready(function() {
     $('.select2_01').select2({
 		data: block_data
 	});
-	generate_random_ids();
+	set_id_attribute_modifiers();
 	makeCommand();
 
 });
-
-function generate_random_ids(){
-	var min = -1000000000;
-	var max = 1000000000;
-	for(var i = 0; i < form.id.length; i++){
-		form.id[i].value = Math.floor(Math.random() * (max - min) + min);
-	}
-	makeCommand();
-}
-function reset_attribute_modifiers(){
-	for(var i = 0; i < form.amount.length; i++){
-		form.amount[i].value = "";
-		form.slot[i].value = "";
-		form.id[i].value = "";
-	}
-	
-	makeCommand();
-	
-}
-function reset_enchantments(){
-	for(var i = 0; i < form.enchantments_levels.length; i++){
-		form.enchantments_levels[i].value = "";
-	}
-	
-	makeCommand();
-	
-}
 	
 function set_armor_image(){
 	

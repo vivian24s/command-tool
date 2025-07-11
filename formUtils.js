@@ -24,6 +24,24 @@ function set_attribute_modifiers(form) {
         return "";
     }
 }
+function set_id_attribute_modifiers(){
+	var min = -1000000000;
+	var max = 1000000000;
+	for(var i = 0; i < form.id.length; i++){
+		form.id[i].value = Math.floor(Math.random() * (max - min) + min);
+	}
+	makeCommand();
+}
+function reset_attribute_modifiers(){
+	for(var i = 0; i < form.amount.length; i++){
+		form.amount[i].value = "";
+		form.slot[i].value = "";
+		form.id[i].value = "";
+	}
+	
+	makeCommand();
+	
+}
 
 function set_banner_patterns(form) {}
 function set_base_color(form) {}
@@ -86,6 +104,14 @@ function set_enchantments(form) {
     } else {
         return "";
     }
+}
+function reset_enchantments(){
+	for(var i = 0; i < form.enchantments_levels.length; i++){
+		form.enchantments_levels[i].value = "";
+	}
+	
+	makeCommand();
+	
 }
 function set_entity_data(form) {}
 function set_equippable(form) {}
