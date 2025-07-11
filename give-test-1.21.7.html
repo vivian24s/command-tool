@@ -1,0 +1,99 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/css/select2.min.css" rel="stylesheet" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0-rc.2/js/select2.min.js"></script>
+<script src="https://minecraft-blog.net/wp-content/themes/swell_child/01_command-je/block-data-1.21.js" ></script>
+
+<link rel="stylesheet" type="text/css" href="https://vivian24s.github.io/command-tool/common.css" />
+<script src="https://vivian24s.github.io/command-tool/common.js" ></script>
+<script src="https://vivian24s.github.io/command-tool/formUtils.js"></script>
+
+
+<form name="form">
+
+    <b style="background-color:gainsboro">1.基本設定</b><br>
+	
+	<table class="command-table-vertical">
+
+		<tr>
+			<th>プレイヤー</th>
+			<td><input class="command-input" type="text" name="targets" value="@p" placeholder="必須" onchange="makeCommand()"></td>
+		</tr>
+
+		<tr>
+			<th>アイテム</th>
+			<td><select class="select2_01 command-input" name="item" onchange="makeCommand()"></select></td>
+		</tr>
+		
+		<tr>
+			<th>個数</th>
+			<td><input class="command-input" type="number" min="1" max="64" name="count" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+
+	</table>
+
+    <br clear="all">
+
+    <b style="background-color:gainsboro">2.コンポーネント</b><br>
+	
+	<table class="command-table-vertical">
+
+		<tr>
+			<th>新しい名前</th>
+			<td><input class="command-input" type="text" name="custom_name" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+
+	</table>
+
+	<br clear="all">
+
+    <b style="background-color:gainsboro">出力</b><br>
+
+	<textarea id="cmdOutput" name="cmdOutput" rows="5" style="width:100%;"></textarea>
+	<div id="count">[文字数：0]</div>
+	<input class="cmdButton" type="button" name="copy" onclick="cmdCopy('cmdOutput')" value="コマンドコピー">
+
+</form>
+
+
+<script type="text/javascript">
+
+	//グローバル変数定義
+	command = "";
+	var component_custom_name = "";
+	var component_lore = "";
+	var component_damage = "";
+	var component_unbreakable = "";
+	var component_dyed_color = "";
+	var component_trim = "";
+	var component_enchantments = "";
+	var component_attribute_modifiers = "";
+	var component_rarity = "";
+	
+//初期設定
+$(document).ready(function() {
+	//プルダウン読み込み
+    $('.select2_01').select2({
+		data: block_data
+	});
+	makeCommand();
+
+});
+
+//コマンド生成
+function makeCommand(){
+    var component_custom_name = set_custom_name(form);
+
+    var components = [];
+    if(component_custom_name !== ''){
+        components.push(component_custom_name);
+    }
+
+    //giveコマンド生成ツール
+    form.cmdOutput.value = buildGiveCommand(form, components);
+    //文字数出力
+    strLenPrint();
+}
+	
+
+</script>

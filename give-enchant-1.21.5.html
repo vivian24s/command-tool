@@ -123,36 +123,36 @@
 			</td>
 		</tr>
 
-	  <tr>
-	    <th rowspan="3">ツールチップ表示<br>
-			(Ctrl/Shiftで複数選択)
-		</th>
-	    <td>
-	      <select class="command-input" name="hide_tooltip" onchange="makeCommand()">
-	        <option value="">未設定</option>
-	        <option value="false">選択したものを非表示</option>
-	        <option value="true">全て非表示</option>
-	      </select>
-	    </td>
-	  </tr>
-	  <tr>
-	    <td rowspan="2">
-	      <select class="command-input" name="hidden_components" multiple onchange="makeCommand()">
-	        <option value="attribute_modifiers">attribute_modifiers</option>
-			<option value="custom_name">custom_name</option>
-			<option value="damage">damage</option>
-			<option value="dyed_color">dyed_color</option>
-			<option value="enchantments">enchantments</option>
-			<option value="lore">lore</option>
-			<option value="trim">trim</option>
-			<option value="unbreakable">unbreakable</option>
-	        <!-- 必要に応じて他のコンポーネントも追加 -->
-	      </select>
-	    </td>
-	  </tr>
+		<tr>
+			<th rowspan="2">ツールチップ表示<br>
+				(Ctrl/Shiftで複数選択)
+			</th>
+			<td>
+				<select class="command-input" name="hide_tooltip" onchange="makeCommand()">
+				<option value="">未設定</option>
+				<option value="false">選択したものを非表示</option>
+				<option value="true">全て非表示</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="1">
+				<select class="command-input" name="hidden_components" multiple onchange="makeCommand()">
+				<option value="attribute_modifiers">attribute_modifiers</option>
+				<option value="custom_name">custom_name</option>
+				<option value="damage">damage</option>
+				<option value="dyed_color">dyed_color</option>
+				<option value="enchantments">enchantments</option>
+				<option value="lore">lore</option>
+				<option value="trim">trim</option>
+				<option value="unbreakable">unbreakable</option>
+				<!-- 必要に応じて他のコンポーネントも追加 -->
+				</select>
+			</td>
+		</tr>
 
 		<tr>
-			<th>レアリティ</th>
+			<th>希少度</th>
 			<td>
 				<select class="command-input" name="rarity" onchange="makeCommand()">
 					<option value="">未設定</option>
