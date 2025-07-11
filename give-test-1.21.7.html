@@ -48,6 +48,407 @@
 			<td><input class="command-input" type="text" name="custom_data" value="" placeholder="未設定" onchange="makeCommand()"></td>
 		</tr>
 
+		<tr>
+			<th>盾の色</th>
+			<td>
+				<select class="command-input" name="base_color" onchange="makeCommand()">
+					<option value="">未設定</option>
+					<option value="white">白色</option>
+					<option value="orange">橙色</option>
+					<option value="magenta">赤紫色</option>
+					<option value="light_blue">空色</option>
+					<option value="yellow">黄色</option>
+					<option value="lime">黄緑色</option>
+					<option value="pink">桃色</option>
+					<option value="gray">灰色</option>
+					<option value="light_gray">薄灰色</option>
+					<option value="cyan">青緑色</option>
+					<option value="purple">紫色</option>
+					<option value="blue">青色</option>
+					<option value="brown">茶色</option>
+					<option value="green">緑色</option>
+					<option value="red">赤色</option>
+					<option value="black">黒色</option>
+				</select>
+			</td>
+		</tr>
+
+        <tr>
+            <th>盾/旗の模様1</th>
+            <td>
+                <select class="command-input" name="banner_pattern1" onchange="makeCommand()">
+                    <option value="">未設定</option>
+                    <option value="base">下地</option>
+                    <option value="border">縁取り</option>
+                    <option value="bricks">レンガ模様</option>
+                    <option value="circle">円形</option>
+                    <option value="creeper">クリーパー模様</option>
+                    <option value="cross">斜め十字</option>
+                    <option value="curly_border">山形波の縁取り</option>
+                    <option value="diagonal_left">左上半に斜め分割</option>
+                    <option value="diagonal_right">右上半に斜め分割</option>
+                    <option value="diagonal_up_left">左下半に斜め分割</option>
+                    <option value="diagonal_up_right">右下半に斜め分割</option>
+                    <option value="flow">渦巻き模様</option>
+                    <option value="flower">花模様</option>
+                    <option value="globe">地球の模様</option>
+                    <option value="gradient">上にグラデーション</option>
+                    <option value="gradient_up">下にグラデーション</option>
+                    <option value="guster">風巻く者の模様</option>
+                    <option value="half_horizontal">上半に横分割</option>
+                    <option value="half_horizontal_bottom">下半に横分割</option>
+                    <option value="half_vertical">左半に縦分割</option>
+                    <option value="half_vertical_right">右半に縦分割</option>
+                    <option value="mojang">何かの模様</option>
+                    <option value="piglin">ブタの鼻の模様</option>
+                    <option value="rhombus">菱形</option>
+                    <option value="skull">骸骨模様</option>
+                    <option value="small_stripes">縦縞</option>
+                    <option value="square_bottom_left">左下隅に方形</option>
+                    <option value="square_bottom_right">右下隅に方形</option>
+                    <option value="square_top_left">左上隅に方形</option>
+                    <option value="square_top_right">右上隅に方形</option>
+                    <option value="straight_cross">十字</option>
+                    <option value="stripe_bottom">下端に横帯</option>
+                    <option value="stripe_center">中央に縦帯</option>
+                    <option value="stripe_downleft">左下向きに斜め帯</option>
+                    <option value="stripe_downright">右下向きに斜め帯</option>
+                    <option value="stripe_left">左端に縦帯</option>
+                    <option value="stripe_middle">中央に横帯</option>
+                    <option value="stripe_right">右端に縦帯</option>
+                    <option value="stripe_top">上端に横帯</option>
+                    <option value="triangle_bottom">下半に上向き山形</option>
+                    <option value="triangle_top">上半に下向き山形</option>
+                    <option value="triangles_bottom">下端に上向き山形波</option>
+                    <option value="triangles_top">上端に下向き山形波</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>盾/旗の色1</th>
+            <td>
+                <select class="command-input" name="banner_color1" onchange="makeCommand()">
+                    <option value="">未設定</option>
+                    <option value="white">白色</option>
+                    <option value="orange">橙色</option>
+                    <option value="magenta">赤紫色</option>
+                    <option value="light_blue">空色</option>
+                    <option value="yellow">黄色</option>
+                    <option value="lime">黄緑色</option>
+                    <option value="pink">桃色</option>
+                    <option value="gray">灰色</option>
+                    <option value="light_gray">薄灰色</option>
+                    <option value="cyan">青緑色</option>
+                    <option value="purple">紫色</option>
+                    <option value="blue">青色</option>
+                    <option value="brown">茶色</option>
+                    <option value="green">緑色</option>
+                    <option value="red">赤色</option>
+                    <option value="black">黒色</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>盾/旗の模様2</th>
+            <td>
+                <select class="command-input" name="banner_pattern2" onchange="makeCommand()">
+                    <option value="">未設定</option>
+                    <option value="base">下地</option>
+                    <option value="border">縁取り</option>
+                    <option value="bricks">レンガ模様</option>
+                    <option value="circle">円形</option>
+                    <option value="creeper">クリーパー模様</option>
+                    <option value="cross">斜め十字</option>
+                    <option value="curly_border">山形波の縁取り</option>
+                    <option value="diagonal_left">左上半に斜め分割</option>
+                    <option value="diagonal_right">右上半に斜め分割</option>
+                    <option value="diagonal_up_left">左下半に斜め分割</option>
+                    <option value="diagonal_up_right">右下半に斜め分割</option>
+                    <option value="flow">渦巻き模様</option>
+                    <option value="flower">花模様</option>
+                    <option value="globe">地球の模様</option>
+                    <option value="gradient">上にグラデーション</option>
+                    <option value="gradient_up">下にグラデーション</option>
+                    <option value="guster">風巻く者の模様</option>
+                    <option value="half_horizontal">上半に横分割</option>
+                    <option value="half_horizontal_bottom">下半に横分割</option>
+                    <option value="half_vertical">左半に縦分割</option>
+                    <option value="half_vertical_right">右半に縦分割</option>
+                    <option value="mojang">何かの模様</option>
+                    <option value="piglin">ブタの鼻の模様</option>
+                    <option value="rhombus">菱形</option>
+                    <option value="skull">骸骨模様</option>
+                    <option value="small_stripes">縦縞</option>
+                    <option value="square_bottom_left">左下隅に方形</option>
+                    <option value="square_bottom_right">右下隅に方形</option>
+                    <option value="square_top_left">左上隅に方形</option>
+                    <option value="square_top_right">右上隅に方形</option>
+                    <option value="straight_cross">十字</option>
+                    <option value="stripe_bottom">下端に横帯</option>
+                    <option value="stripe_center">中央に縦帯</option>
+                    <option value="stripe_downleft">左下向きに斜め帯</option>
+                    <option value="stripe_downright">右下向きに斜め帯</option>
+                    <option value="stripe_left">左端に縦帯</option>
+                    <option value="stripe_middle">中央に横帯</option>
+                    <option value="stripe_right">右端に縦帯</option>
+                    <option value="stripe_top">上端に横帯</option>
+                    <option value="triangle_bottom">下半に上向き山形</option>
+                    <option value="triangle_top">上半に下向き山形</option>
+                    <option value="triangles_bottom">下端に上向き山形波</option>
+                    <option value="triangles_top">上端に下向き山形波</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>盾/旗の色2</th>
+            <td>
+                <select class="command-input" name="banner_color2" onchange="makeCommand()">
+                    <option value="">未設定</option>
+                    <option value="white">白色</option>
+                    <option value="orange">橙色</option>
+                    <option value="magenta">赤紫色</option>
+                    <option value="light_blue">空色</option>
+                    <option value="yellow">黄色</option>
+                    <option value="lime">黄緑色</option>
+                    <option value="pink">桃色</option>
+                    <option value="gray">灰色</option>
+                    <option value="light_gray">薄灰色</option>
+                    <option value="cyan">青緑色</option>
+                    <option value="purple">紫色</option>
+                    <option value="blue">青色</option>
+                    <option value="brown">茶色</option>
+                    <option value="green">緑色</option>
+                    <option value="red">赤色</option>
+                    <option value="black">黒色</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>盾/旗の模様3</th>
+            <td>
+                <select class="command-input" name="banner_pattern3" onchange="makeCommand()">
+                    <option value="">未設定</option>
+                    <option value="base">下地</option>
+                    <option value="border">縁取り</option>
+                    <option value="bricks">レンガ模様</option>
+                    <option value="circle">円形</option>
+                    <option value="creeper">クリーパー模様</option>
+                    <option value="cross">斜め十字</option>
+                    <option value="curly_border">山形波の縁取り</option>
+                    <option value="diagonal_left">左上半に斜め分割</option>
+                    <option value="diagonal_right">右上半に斜め分割</option>
+                    <option value="diagonal_up_left">左下半に斜め分割</option>
+                    <option value="diagonal_up_right">右下半に斜め分割</option>
+                    <option value="flow">渦巻き模様</option>
+                    <option value="flower">花模様</option>
+                    <option value="globe">地球の模様</option>
+                    <option value="gradient">上にグラデーション</option>
+                    <option value="gradient_up">下にグラデーション</option>
+                    <option value="guster">風巻く者の模様</option>
+                    <option value="half_horizontal">上半に横分割</option>
+                    <option value="half_horizontal_bottom">下半に横分割</option>
+                    <option value="half_vertical">左半に縦分割</option>
+                    <option value="half_vertical_right">右半に縦分割</option>
+                    <option value="mojang">何かの模様</option>
+                    <option value="piglin">ブタの鼻の模様</option>
+                    <option value="rhombus">菱形</option>
+                    <option value="skull">骸骨模様</option>
+                    <option value="small_stripes">縦縞</option>
+                    <option value="square_bottom_left">左下隅に方形</option>
+                    <option value="square_bottom_right">右下隅に方形</option>
+                    <option value="square_top_left">左上隅に方形</option>
+                    <option value="square_top_right">右上隅に方形</option>
+                    <option value="straight_cross">十字</option>
+                    <option value="stripe_bottom">下端に横帯</option>
+                    <option value="stripe_center">中央に縦帯</option>
+                    <option value="stripe_downleft">左下向きに斜め帯</option>
+                    <option value="stripe_downright">右下向きに斜め帯</option>
+                    <option value="stripe_left">左端に縦帯</option>
+                    <option value="stripe_middle">中央に横帯</option>
+                    <option value="stripe_right">右端に縦帯</option>
+                    <option value="stripe_top">上端に横帯</option>
+                    <option value="triangle_bottom">下半に上向き山形</option>
+                    <option value="triangle_top">上半に下向き山形</option>
+                    <option value="triangles_bottom">下端に上向き山形波</option>
+                    <option value="triangles_top">上端に下向き山形波</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>盾/旗の色3</th>
+            <td>
+                <select class="command-input" name="banner_color3" onchange="makeCommand()">
+                    <option value="">未設定</option>
+                    <option value="white">白色</option>
+                    <option value="orange">橙色</option>
+                    <option value="magenta">赤紫色</option>
+                    <option value="light_blue">空色</option>
+                    <option value="yellow">黄色</option>
+                    <option value="lime">黄緑色</option>
+                    <option value="pink">桃色</option>
+                    <option value="gray">灰色</option>
+                    <option value="light_gray">薄灰色</option>
+                    <option value="cyan">青緑色</option>
+                    <option value="purple">紫色</option>
+                    <option value="blue">青色</option>
+                    <option value="brown">茶色</option>
+                    <option value="green">緑色</option>
+                    <option value="red">赤色</option>
+                    <option value="black">黒色</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>盾/旗の模様4</th>
+            <td>
+                <select class="command-input" name="banner_pattern4" onchange="makeCommand()">
+                    <option value="">未設定</option>
+                    <option value="base">下地</option>
+                    <option value="border">縁取り</option>
+                    <option value="bricks">レンガ模様</option>
+                    <option value="circle">円形</option>
+                    <option value="creeper">クリーパー模様</option>
+                    <option value="cross">斜め十字</option>
+                    <option value="curly_border">山形波の縁取り</option>
+                    <option value="diagonal_left">左上半に斜め分割</option>
+                    <option value="diagonal_right">右上半に斜め分割</option>
+                    <option value="diagonal_up_left">左下半に斜め分割</option>
+                    <option value="diagonal_up_right">右下半に斜め分割</option>
+                    <option value="flow">渦巻き模様</option>
+                    <option value="flower">花模様</option>
+                    <option value="globe">地球の模様</option>
+                    <option value="gradient">上にグラデーション</option>
+                    <option value="gradient_up">下にグラデーション</option>
+                    <option value="guster">風巻く者の模様</option>
+                    <option value="half_horizontal">上半に横分割</option>
+                    <option value="half_horizontal_bottom">下半に横分割</option>
+                    <option value="half_vertical">左半に縦分割</option>
+                    <option value="half_vertical_right">右半に縦分割</option>
+                    <option value="mojang">何かの模様</option>
+                    <option value="piglin">ブタの鼻の模様</option>
+                    <option value="rhombus">菱形</option>
+                    <option value="skull">骸骨模様</option>
+                    <option value="small_stripes">縦縞</option>
+                    <option value="square_bottom_left">左下隅に方形</option>
+                    <option value="square_bottom_right">右下隅に方形</option>
+                    <option value="square_top_left">左上隅に方形</option>
+                    <option value="square_top_right">右上隅に方形</option>
+                    <option value="straight_cross">十字</option>
+                    <option value="stripe_bottom">下端に横帯</option>
+                    <option value="stripe_center">中央に縦帯</option>
+                    <option value="stripe_downleft">左下向きに斜め帯</option>
+                    <option value="stripe_downright">右下向きに斜め帯</option>
+                    <option value="stripe_left">左端に縦帯</option>
+                    <option value="stripe_middle">中央に横帯</option>
+                    <option value="stripe_right">右端に縦帯</option>
+                    <option value="stripe_top">上端に横帯</option>
+                    <option value="triangle_bottom">下半に上向き山形</option>
+                    <option value="triangle_top">上半に下向き山形</option>
+                    <option value="triangles_bottom">下端に上向き山形波</option>
+                    <option value="triangles_top">上端に下向き山形波</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>盾/旗の色4</th>
+            <td>
+                <select class="command-input" name="banner_color4" onchange="makeCommand()">
+                    <option value="">未設定</option>
+                    <option value="white">白色</option>
+                    <option value="orange">橙色</option>
+                    <option value="magenta">赤紫色</option>
+                    <option value="light_blue">空色</option>
+                    <option value="yellow">黄色</option>
+                    <option value="lime">黄緑色</option>
+                    <option value="pink">桃色</option>
+                    <option value="gray">灰色</option>
+                    <option value="light_gray">薄灰色</option>
+                    <option value="cyan">青緑色</option>
+                    <option value="purple">紫色</option>
+                    <option value="blue">青色</option>
+                    <option value="brown">茶色</option>
+                    <option value="green">緑色</option>
+                    <option value="red">赤色</option>
+                    <option value="black">黒色</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>盾/旗の模様5</th>
+            <td>
+                <select class="command-input" name="banner_pattern5" onchange="makeCommand()">
+                    <option value="">未設定</option>
+                    <option value="base">下地</option>
+                    <option value="border">縁取り</option>
+                    <option value="bricks">レンガ模様</option>
+                    <option value="circle">円形</option>
+                    <option value="creeper">クリーパー模様</option>
+                    <option value="cross">斜め十字</option>
+                    <option value="curly_border">山形波の縁取り</option>
+                    <option value="diagonal_left">左上半に斜め分割</option>
+                    <option value="diagonal_right">右上半に斜め分割</option>
+                    <option value="diagonal_up_left">左下半に斜め分割</option>
+                    <option value="diagonal_up_right">右下半に斜め分割</option>
+                    <option value="flow">渦巻き模様</option>
+                    <option value="flower">花模様</option>
+                    <option value="globe">地球の模様</option>
+                    <option value="gradient">上にグラデーション</option>
+                    <option value="gradient_up">下にグラデーション</option>
+                    <option value="guster">風巻く者の模様</option>
+                    <option value="half_horizontal">上半に横分割</option>
+                    <option value="half_horizontal_bottom">下半に横分割</option>
+                    <option value="half_vertical">左半に縦分割</option>
+                    <option value="half_vertical_right">右半に縦分割</option>
+                    <option value="mojang">何かの模様</option>
+                    <option value="piglin">ブタの鼻の模様</option>
+                    <option value="rhombus">菱形</option>
+                    <option value="skull">骸骨模様</option>
+                    <option value="small_stripes">縦縞</option>
+                    <option value="square_bottom_left">左下隅に方形</option>
+                    <option value="square_bottom_right">右下隅に方形</option>
+                    <option value="square_top_left">左上隅に方形</option>
+                    <option value="square_top_right">右上隅に方形</option>
+                    <option value="straight_cross">十字</option>
+                    <option value="stripe_bottom">下端に横帯</option>
+                    <option value="stripe_center">中央に縦帯</option>
+                    <option value="stripe_downleft">左下向きに斜め帯</option>
+                    <option value="stripe_downright">右下向きに斜め帯</option>
+                    <option value="stripe_left">左端に縦帯</option>
+                    <option value="stripe_middle">中央に横帯</option>
+                    <option value="stripe_right">右端に縦帯</option>
+                    <option value="stripe_top">上端に横帯</option>
+                    <option value="triangle_bottom">下半に上向き山形</option>
+                    <option value="triangle_top">上半に下向き山形</option>
+                    <option value="triangles_bottom">下端に上向き山形波</option>
+                    <option value="triangles_top">上端に下向き山形波</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>盾/旗の色5</th>
+            <td>
+                <select class="command-input" name="banner_color5" onchange="makeCommand()">
+                    <option value="">未設定</option>
+                    <option value="white">白色</option>
+                    <option value="orange">橙色</option>
+                    <option value="magenta">赤紫色</option>
+                    <option value="light_blue">空色</option>
+                    <option value="yellow">黄色</option>
+                    <option value="lime">黄緑色</option>
+                    <option value="pink">桃色</option>
+                    <option value="gray">灰色</option>
+                    <option value="light_gray">薄灰色</option>
+                    <option value="cyan">青緑色</option>
+                    <option value="purple">紫色</option>
+                    <option value="blue">青色</option>
+                    <option value="brown">茶色</option>
+                    <option value="green">緑色</option>
+                    <option value="red">赤色</option>
+                    <option value="black">黒色</option>
+                </select>
+            </td>
+        </tr>
+
 	</table>
 
 	<br clear="all">
@@ -82,6 +483,8 @@ $(document).ready(function() {
 function makeCommand(){
     var component_custom_name = set_custom_name(form);
     var component_custom_data = set_custom_data(form);
+    var component_base_color = set_base_color(form);
+    var component_banner_patterns = set_banner_patterns(form);
 
     var components = [];
     if(component_custom_name !== ''){
@@ -90,6 +493,12 @@ function makeCommand(){
     if(component_custom_data !== ''){
         components.push(component_custom_data);
     }
+    if(component_base_color !== ''){
+        components.push(component_base_color);
+    }
+    if(component_banner_patterns !== ''){
+        components.push(component_banner_patterns);
+    }
 
     //giveコマンド生成ツール
     form.cmdOutput.value = buildGiveCommand(form, components);
@@ -97,5 +506,5 @@ function makeCommand(){
     strLenPrint();
 }
 	
-
 </script>
+

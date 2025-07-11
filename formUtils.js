@@ -43,8 +43,28 @@ function reset_attribute_modifiers(){
 	
 }
 
-function set_banner_patterns(form) {}
-function set_base_color(form) {}
+function set_banner_patterns(form) {
+    let patterns = [];
+    for(let i=1; i<=5; i++) {
+        let pattern = form[`banner_pattern${i}`]?.value;
+        let color = form[`banner_color${i}`]?.value;
+        if(pattern && color) {
+            patterns.push(`{pattern:\"${pattern}\",color:\"${color}\"}`);
+        }
+    }
+    if(patterns.length > 0){
+        return `banner_patterns=[${patterns.join(",")}]`;
+    } else {
+        return "";
+    }
+}
+function set_base_color(form) {
+    if(form.base_color && form.base_color.value !== ""){
+        return `base_color=\"${form.base_color.value}\"`;
+    } else {
+        return "";
+    }
+}
 function set_bees(form) {}
 function set_block_entity_data(form) {}
 function set_block_state(form) {}
