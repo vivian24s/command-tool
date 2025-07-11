@@ -40,7 +40,13 @@ function set_charged_projectiles(form) {}
 function set_consumable(form) {}
 function set_container(form) {}
 function set_container_loot(form) {}
-function set_custom_data(form) {}
+function set_custom_data(form) {
+    if(form.custom_data && form.custom_data.value !== ""){
+        return `custom_data={${form.custom_data.value}}`;
+    } else {
+        return "";
+    }
+}
 function set_custom_model_data(form) {}
 function set_custom_name(form) {
     let component_custom_name = "";

@@ -43,6 +43,11 @@
 			<td><input class="command-input" type="text" name="custom_name" value="" placeholder="未設定" onchange="makeCommand()"></td>
 		</tr>
 
+		<tr>
+			<th>カスタムデータ</th>
+			<td><input class="command-input" type="text" name="custom_data" value="" placeholder="未設定" onchange="makeCommand()"></td>
+		</tr>
+
 	</table>
 
 	<br clear="all">
@@ -61,14 +66,7 @@
 	//グローバル変数定義
 	command = "";
 	var component_custom_name = "";
-	var component_lore = "";
-	var component_damage = "";
-	var component_unbreakable = "";
-	var component_dyed_color = "";
-	var component_trim = "";
-	var component_enchantments = "";
-	var component_attribute_modifiers = "";
-	var component_rarity = "";
+    var component_custom_data = "";
 	
 //初期設定
 $(document).ready(function() {
@@ -83,10 +81,14 @@ $(document).ready(function() {
 //コマンド生成
 function makeCommand(){
     var component_custom_name = set_custom_name(form);
+    var component_custom_data = set_custom_data(form);
 
     var components = [];
     if(component_custom_name !== ''){
         components.push(component_custom_name);
+    }
+    if(component_custom_data !== ''){
+        components.push(component_custom_data);
     }
 
     //giveコマンド生成ツール
