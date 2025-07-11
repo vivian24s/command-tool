@@ -151,6 +151,19 @@
 	    </td>
 	  </tr>
 
+		<tr>
+			<th>レアリティ</th>
+			<td>
+				<select class="command-input" name="rarity" onchange="makeCommand()">
+					<option value="">未設定</option>
+					<option value="common">common（コモン）</option>
+					<option value="uncommon">uncommon（アンコモン）</option>
+					<option value="rare">rare（レア）</option>
+					<option value="epic">epic（エピック）</option>
+				</select>
+			</td>
+		</tr>
+
 	</table>
 	
 	<table class="command-table-vertical">
@@ -825,7 +838,7 @@
 					</select>
 				</td>
 			</tr>
-			
+
 			<tr>
 				<td>跳躍力</td>
 				<td><input class="command-input" type="number" name="amount" value="" maxlength="10" placeholder="必須" step="0.1" title="jump_strength" onchange="makeCommand()"></td>
@@ -1053,6 +1066,7 @@
 	var component_trim = "";
 	var component_enchantments = "";
 	var component_attribute_modifiers = "";
+	var component_rarity = "";
 	
 //初期設定
 $(document).ready(function() {
@@ -1166,6 +1180,7 @@ function makeCommand(){
     var component_enchantments = set_enchantments(form);
     var component_attribute_modifiers = set_attribute_modifiers(form);
     var component_tooltip_display = set_tooltip_display(form);
+    var component_rarity = set_rarity(form);
     var components = [];
     if(component_custom_name !== ''){
         components.push(component_custom_name);
@@ -1193,6 +1208,9 @@ function makeCommand(){
     }
     if(component_tooltip_display !== ''){
         components.push(component_tooltip_display);
+    }
+    if(component_rarity !== ''){
+        components.push(component_rarity);
     }
     //giveコマンド生成ツール
     form.cmdOutput.value = buildGiveCommand(form, components);
