@@ -179,7 +179,7 @@ function set_custom_model_data(form) {
 function set_custom_name(form) {
     if(form.custom_name && form.custom_name.value !== ""){
         return `custom_name= '${form.custom_name.value}' `;
-    }  else {
+    } else {
         return "";
     }
 }
