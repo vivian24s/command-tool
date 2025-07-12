@@ -94,76 +94,68 @@ function set_block_state(form) {
 }
 function set_blocks_attacks(form) {}
 function set_break_sound(form) {
-    var val = form.break_sound?.value?.trim();
-    if (val) {
-        return `break_sound=${val}`;
+    if(form.break_sound && form.break_sound.value !== ""){
+        return `block_state=${form.break_sound.value}`;
+    } else {
+        return "";
     }
-    return '';
 }
 function set_bucket_entity_data(form) {
-    var val = form.bucket_entity_data?.value?.trim();
-    if (val) {
-        return `bucket_entity_data=${val}`;
+    if (form.bucket_entity_data && form.bucket_entity_data.value !== "") {
+        return `bucket_entity_data=${form.bucket_entity_data.value}`;
+    } else {
+        return '';
     }
-    return '';
 }
 function set_bundle_contents(form) {
-    var val = form.bundle_contents?.value?.trim();
-    if (val) {
-        return `bundle_contents=${val}`;
+    if (form.bundle_contents && form.bundle_contents.value !== "") {
+        return `bundle_contents=${form.bundle_contents.value}`;
+    } else {
+        return '';
     }
-    return '';
 }
 function set_can_break(form) {
-    var val = form.can_break?.value?.trim();
-    if (val) {
-        var arr = val.split(',').map(function(s){return s.trim();}).filter(Boolean);
-        if (arr.length > 0) {
-            return `can_break=${JSON.stringify(arr)}`;
-        }
+    if (form.an_break && form.an_break.value !== "") {
+        return `an_break=${form.an_break.value}`;
+    } else {
+        return '';
     }
-    return '';
+
 }
 function set_can_place_on(form) {
-    var val = form.can_place_on?.value?.trim();
-    if (val) {
-        var arr = val.split(',').map(function(s){return s.trim();}).filter(Boolean);
-        if (arr.length > 0) {
-            return `can_place_on=${JSON.stringify(arr)}`;
-        }
+    if (form.can_place_on && form.can_place_on.value !== "") {
+        return `can_place_on=${form.can_place_on.value}`;
+    } else {
+        return '';
     }
-    return '';
 }
 function set_charged_projectiles(form) {
-    var val = form.charged_projectiles?.value?.trim();
-    if (val) {
-        var arr = val.split(',').map(function(s){return s.trim();}).filter(Boolean);
-        if (arr.length > 0) {
-            return `charged_projectiles=${JSON.stringify(arr)}`;
-        }
+    if (form.charged_projectiles && form.charged_projectiles.value !== "") {
+        return `charged_projectiles=${form.charged_projectiles.value}`;
+    } else {
+        return '';
     }
-    return '';
 }
 function set_consumable(form) {
-    var val = form.consumable?.value?.trim();
-    if (val) {
-        return `consumable=${val}`;
+    if (form.consumable && form.consumable.value !== "") {
+        return `consumable=${form.consumable.value}`;
+    } else {
+        return '';
     }
-    return '';
 }
 function set_container(form) {
-    var val = form.container?.value?.trim();
-    if (val) {
-        return `container=${val}`;
+    if (form.container && form.container.value !== "") {
+        return `container=${form.container.value}`;
+    } else {
+        return '';
     }
-    return '';
 }
 function set_container_loot(form) {
-    var val = form.container_loot?.value?.trim();
-    if (val) {
-        return `container_loot=${val}`;
+    if (form.container_loot && form.container_loot.value !== "") {
+        return `container_loot=${form.container_loot.value}`;
+    } else {
+        return '';
     }
-    return '';
 }
 function set_custom_data(form) {
     if(form.custom_data && form.custom_data.value !== ""){
@@ -173,11 +165,11 @@ function set_custom_data(form) {
     }
 }
 function set_custom_model_data(form) {
-    var val = form.custom_model_data?.value?.trim();
-    if (val && !isNaN(val)) {
-        return `custom_model_data=${val}`;
+    if(form.custom_model_data && form.custom_model_data.value !== ""){
+        return `custom_model_data=${form.custom_model_data.value}`;
+    } else {
+        return "";
     }
-    return '';
 }
 function set_custom_name(form) {
     let component_custom_name = "";
@@ -196,11 +188,11 @@ function set_damage(form) {
 function set_damage_resistant(form) {}
 function set_death_protection(form) {}
 function set_debug_stick_state(form) {
-    var val = form.debug_stick_state?.value?.trim();
-    if (val) {
-        return `debug_stick_state=${val}`;
+    if (form.debug_stick_state && form.debug_stick_state.value !== "") {
+        return `debug_stick_state=${form.debug_stick_state.value}`;
+    } else {
+        return '';
     }
-    return '';
 }
 function set_dyed_color(form) {
     if(form.dyed_color_flag.value !== ""){
