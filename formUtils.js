@@ -72,7 +72,6 @@ function set_bees(form) {
         var entity_data = form.bees_entity_data.value;
         var ticks_in_hive = form.bees_ticks_in_hive.value;
         var min_ticks_in_hive = form.bees_min_ticks_in_hive.value;
-        var bee = {};
         // entity_dataはそのまま展開
         return 'bees=[{entity_data:' + entity_data + ',ticks_in_hive:' + Number(ticks_in_hive) + ',min_ticks_in_hive:' + Number(min_ticks_in_hive) + '}]';
     } else {
