@@ -42,6 +42,11 @@
             <td><input class="command-input" type="text" name="custom_name" value="" placeholder="未設定" onchange="makeCommand()"></td>
         </tr>
 
+    <tr>
+        <th>アイテム名</th>
+        <td><input class="command-input" type="text" name="item_name" value="" placeholder="未設定" onchange="makeCommand()"></td>
+    </tr>
+
         <tr>
             <th>カスタムデータ</th>
             <td><input class="command-input" type="text" name="custom_data" value="" placeholder="未設定" onchange="makeCommand()"></td>
@@ -685,8 +690,6 @@
 
     //グローバル変数定義
     command = "";
-    var component_custom_name = "";
-    var component_custom_data = "";
     
 //初期設定
 $(document).ready(function() {
@@ -701,6 +704,7 @@ $(document).ready(function() {
 //コマンド生成
 function makeCommand(){
     var component_custom_name = set_custom_name(form);
+    var component_item_name = set_item_name(form);
     var component_custom_data = set_custom_data(form);
     var component_base_color = set_base_color(form);
     var component_banner_patterns = set_banner_patterns(form);
@@ -745,20 +749,19 @@ function makeCommand(){
     var component_weapon = set_weapon(form);
     var component_writable_book_content = set_writable_book_content(form);
     var component_written_book_content = set_written_book_content(form);
-
     var component_max_damage = set_max_damage(form);
     var component_max_stack_size = set_max_stack_size(form);
     var component_ominous_bottle_amplifier = set_ominous_bottle_amplifier(form);
     var component_potion_duration_scale = set_potion_duration_scale(form);
     var component_repair_cost = set_repair_cost(form);
-
     var component_enchantment_glint_override = set_enchantment_glint_override(form);
-
     var component_glider = set_glider(form);
-
     var components = [];
     if(component_custom_name !== ''){
         components.push(component_custom_name);
+    }
+    if(component_item_name !== ''){
+        components.push(component_item_name);
     }
     if(component_custom_data !== ''){
         components.push(component_custom_data);

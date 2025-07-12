@@ -177,11 +177,11 @@ function set_custom_model_data(form) {
     }
 }
 function set_custom_name(form) {
-    let component_custom_name = "";
-    if(form.custom_name.value !== ""){
-        component_custom_name = "custom_name='" + form.custom_name.value + "'";
+    if(form.custom_name && form.custom_name.value !== ""){
+        return `custom_name= '${form.custom_name.value}' `;
+    }  else {
+        return "";
     }
-    return component_custom_name;
 }
 function set_damage(form) {
     if(form.damage.value !== ""){
@@ -298,7 +298,13 @@ function set_item_model(form) {
         return "";
     }
 }
-function set_item_name(form) {}
+function set_item_name(form) {
+    if(form.item_name && form.item_name.value !== ""){
+        return `item_name= '${form.item_name.value}' `;
+    } else {
+        return "";
+    }
+}
 function set_jukebox_playable(form) {}
 function set_lock(form) {
     if(form.lock && form.lock.value !== ""){
