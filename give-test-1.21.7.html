@@ -11,66 +11,66 @@
 <form name="form">
 
     <b style="background-color:gainsboro">1.基本設定</b><br>
-	
-	<table class="command-table-vertical">
+    
+    <table class="command-table-vertical">
 
-		<tr>
-			<th>プレイヤー</th>
-			<td><input class="command-input" type="text" name="targets" value="@p" placeholder="必須" onchange="makeCommand()"></td>
-		</tr>
+        <tr>
+            <th>プレイヤー</th>
+            <td><input class="command-input" type="text" name="targets" value="@p" placeholder="必須" onchange="makeCommand()"></td>
+        </tr>
 
-		<tr>
-			<th>アイテム</th>
-			<td><select class="select2_01 command-input" name="item" onchange="makeCommand()"></select></td>
-		</tr>
-		
-		<tr>
-			<th>個数</th>
-			<td><input class="command-input" type="number" min="1" max="64" name="count" value="" placeholder="未設定" onchange="makeCommand()"></td>
-		</tr>
+        <tr>
+            <th>アイテム</th>
+            <td><select class="select2_01 command-input" name="item" onchange="makeCommand()"></select></td>
+        </tr>
+        
+        <tr>
+            <th>個数</th>
+            <td><input class="command-input" type="number" min="1" max="64" name="count" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
 
-	</table>
+    </table>
 
     <br clear="all">
 
     <b style="background-color:gainsboro">2.コンポーネント</b><br>
-	
-	<table class="command-table-vertical">
+    
+    <table class="command-table-vertical">
 
-		<tr>
-			<th>新しい名前</th>
-			<td><input class="command-input" type="text" name="custom_name" value="" placeholder="未設定" onchange="makeCommand()"></td>
-		</tr>
+        <tr>
+            <th>新しい名前</th>
+            <td><input class="command-input" type="text" name="custom_name" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
 
-		<tr>
-			<th>カスタムデータ</th>
-			<td><input class="command-input" type="text" name="custom_data" value="" placeholder="未設定" onchange="makeCommand()"></td>
-		</tr>
+        <tr>
+            <th>カスタムデータ</th>
+            <td><input class="command-input" type="text" name="custom_data" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
 
-		<tr>
-			<th>盾の色</th>
-			<td>
-				<select class="command-input" name="base_color" onchange="makeCommand()">
-					<option value="">未設定</option>
-					<option value="white">白色</option>
-					<option value="orange">橙色</option>
-					<option value="magenta">赤紫色</option>
-					<option value="light_blue">空色</option>
-					<option value="yellow">黄色</option>
-					<option value="lime">黄緑色</option>
-					<option value="pink">桃色</option>
-					<option value="gray">灰色</option>
-					<option value="light_gray">薄灰色</option>
-					<option value="cyan">青緑色</option>
-					<option value="purple">紫色</option>
-					<option value="blue">青色</option>
-					<option value="brown">茶色</option>
-					<option value="green">緑色</option>
-					<option value="red">赤色</option>
-					<option value="black">黒色</option>
-				</select>
-			</td>
-		</tr>
+        <tr>
+            <th>盾の色</th>
+            <td>
+                <select class="command-input" name="base_color" onchange="makeCommand()">
+                    <option value="">未設定</option>
+                    <option value="white">白色</option>
+                    <option value="orange">橙色</option>
+                    <option value="magenta">赤紫色</option>
+                    <option value="light_blue">空色</option>
+                    <option value="yellow">黄色</option>
+                    <option value="lime">黄緑色</option>
+                    <option value="pink">桃色</option>
+                    <option value="gray">灰色</option>
+                    <option value="light_gray">薄灰色</option>
+                    <option value="cyan">青緑色</option>
+                    <option value="purple">紫色</option>
+                    <option value="blue">青色</option>
+                    <option value="brown">茶色</option>
+                    <option value="green">緑色</option>
+                    <option value="red">赤色</option>
+                    <option value="black">黒色</option>
+                </select>
+            </td>
+        </tr>
 
         <tr>
             <th>盾/旗の模様1</th>
@@ -463,7 +463,7 @@
             <td><input class="command-input" type="number" min="0" name="bees_min_ticks_in_hive" value="" placeholder="未設定" onchange="makeCommand()"></td>
         </tr>
 
-	</table>
+    </table>
 
     <table class="command-table-vertical">
         <tr>
@@ -472,31 +472,85 @@
         </tr>
     </table>
 
-	<br clear="all">
+    <table class="command-table-vertical">
+        <tr>
+            <th>ブロックの状態</th>
+            <td><input class="command-input" type="text" name="block_state" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+    </table>
+
+    <table class="command-table-vertical">
+        <tr>
+            <th>破壊音（break_sound）</th>
+            <td><input class="command-input" type="text" name="break_sound" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+            <th>Mob入りバケツのデータ（bucket_entity_data）</th>
+            <td><input class="command-input" type="text" name="bucket_entity_data" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+            <th>バンドルのデータ（bundle_contents）</th>
+            <td><input class="command-input" type="text" name="bundle_contents" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+            <th>破壊できるブロック（can_break）</th>
+            <td><input class="command-input" type="text" name="can_break" value="" placeholder="未設定（カンマ区切り可）" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+            <th>設置できるブロック（can_place_on）</th>
+            <td><input class="command-input" type="text" name="can_place_on" value="" placeholder="未設定（カンマ区切り可）" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+            <th>クロスボウの装填アイテム（charged_projectiles）</th>
+            <td><input class="command-input" type="text" name="charged_projectiles" value="" placeholder="未設定（カンマ区切り可）" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+            <th>摂取時の振る舞い（consumable）</th>
+            <td><input class="command-input" type="text" name="consumable" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+            <th>収納ブロックのデータ（container）</th>
+            <td><input class="command-input" type="text" name="container" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+            <th>収納ブロックのルート（container_loot）</th>
+            <td><input class="command-input" type="text" name="container_loot" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+            <th>カスタムモデルデータ（custom_model_data）</th>
+            <td><input class="command-input" type="number" name="custom_model_data" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+            <th>デバッグ棒のデータ（debug_stick_state）</th>
+            <td><input class="command-input" type="text" name="debug_stick_state" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+    </table>
+
+    <br clear="all">
 
     <b style="background-color:gainsboro">出力</b><br>
 
-	<textarea id="cmdOutput" name="cmdOutput" rows="5" style="width:100%;"></textarea>
-	<div id="count">[文字数：0]</div>
-	<input class="cmdButton" type="button" name="copy" onclick="cmdCopy('cmdOutput')" value="コマンドコピー">
+    <textarea id="cmdOutput" name="cmdOutput" rows="5" style="width:100%;"></textarea>
+    <div id="count">[文字数：0]</div>
+    <input class="cmdButton" type="button" name="copy" onclick="cmdCopy('cmdOutput')" value="コマンドコピー">
 
 </form>
 
 
 <script type="text/javascript">
 
-	//グローバル変数定義
-	command = "";
-	var component_custom_name = "";
+    //グローバル変数定義
+    command = "";
+    var component_custom_name = "";
     var component_custom_data = "";
-	
+    
 //初期設定
 $(document).ready(function() {
-	//プルダウン読み込み
+    //プルダウン読み込み
     $('.select2_01').select2({
-		data: block_data
-	});
-	makeCommand();
+        data: block_data
+    });
+    makeCommand();
 
 });
 
@@ -508,6 +562,19 @@ function makeCommand(){
     var component_banner_patterns = set_banner_patterns(form);
     var component_bees = set_bees(form);
     var component_block_entity_data = set_block_entity_data(form);
+    var component_block_state = set_block_state(form);
+
+    var component_break_sound = set_break_sound(form);
+    var component_bucket_entity_data = set_bucket_entity_data(form);
+    var component_bundle_contents = set_bundle_contents(form);
+    var component_can_break = set_can_break(form);
+    var component_can_place_on = set_can_place_on(form);
+    var component_charged_projectiles = set_charged_projectiles(form);
+    var component_consumable = set_consumable(form);
+    var component_container = set_container(form);
+    var component_container_loot = set_container_loot(form);
+    var component_custom_model_data = set_custom_model_data(form);
+    var component_debug_stick_state = set_debug_stick_state(form);
 
     var components = [];
     if(component_custom_name !== ''){
@@ -528,12 +595,48 @@ function makeCommand(){
     if(component_block_entity_data !== ''){
         components.push(component_block_entity_data);
     }
+    if(component_block_state !== ''){
+        components.push(component_block_state);
+    }
+    if(component_break_sound !== ''){
+        components.push(component_break_sound);
+    }
+    if(component_bucket_entity_data !== ''){
+        components.push(component_bucket_entity_data);
+    }
+    if(component_bundle_contents !== ''){
+        components.push(component_bundle_contents);
+    }
+    if(component_can_break !== ''){
+        components.push(component_can_break);
+    }
+    if(component_can_place_on !== ''){
+        components.push(component_can_place_on);
+    }
+    if(component_charged_projectiles !== ''){
+        components.push(component_charged_projectiles);
+    }
+    if(component_consumable !== ''){
+        components.push(component_consumable);
+    }
+    if(component_container !== ''){
+        components.push(component_container);
+    }
+    if(component_container_loot !== ''){
+        components.push(component_container_loot);
+    }
+    if(component_custom_model_data !== ''){
+        components.push(component_custom_model_data);
+    }
+    if(component_debug_stick_state !== ''){
+        components.push(component_debug_stick_state);
+    }
 
     //giveコマンド生成ツール
     form.cmdOutput.value = buildGiveCommand(form, components);
     //文字数出力
     strLenPrint();
 }
-	
+    
 </script>
 

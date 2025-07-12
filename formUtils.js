@@ -25,22 +25,22 @@ function set_attribute_modifiers(form) {
     }
 }
 function set_id_attribute_modifiers(){
-	var min = -1000000000;
-	var max = 1000000000;
-	for(var i = 0; i < form.id.length; i++){
-		form.id[i].value = Math.floor(Math.random() * (max - min) + min);
-	}
-	makeCommand();
+    var min = -1000000000;
+    var max = 1000000000;
+    for(var i = 0; i < form.id.length; i++){
+        form.id[i].value = Math.floor(Math.random() * (max - min) + min);
+    }
+    makeCommand();
 }
 function reset_attribute_modifiers(){
-	for(var i = 0; i < form.amount.length; i++){
-		form.amount[i].value = "";
-		form.slot[i].value = "";
-		form.id[i].value = "";
-	}
-	
-	makeCommand();
-	
+    for(var i = 0; i < form.amount.length; i++){
+        form.amount[i].value = "";
+        form.slot[i].value = "";
+        form.id[i].value = "";
+    }
+    
+    makeCommand();
+    
 }
 
 function set_banner_patterns(form) {
@@ -85,17 +85,86 @@ function set_block_entity_data(form) {
         return "";
     }
 }
-function set_block_state(form) {}
+function set_block_state(form) {
+    if(form.block_state && form.block_state.value !== ""){
+        return `block_state=${form.block_state.value}`;
+    } else {
+        return "";
+    }
+}
 function set_blocks_attacks(form) {}
-function set_break_sound(form) {}
-function set_bucket_entity_data(form) {}
-function set_bundle_contents(form) {}
-function set_can_break(form) {}
-function set_can_place_on(form) {}
-function set_charged_projectiles(form) {}
-function set_consumable(form) {}
-function set_container(form) {}
-function set_container_loot(form) {}
+function set_break_sound(form) {
+    var val = form.break_sound?.value?.trim();
+    if (val) {
+        return `break_sound=${val}`;
+    }
+    return '';
+}
+function set_bucket_entity_data(form) {
+    var val = form.bucket_entity_data?.value?.trim();
+    if (val) {
+        return `bucket_entity_data=${val}`;
+    }
+    return '';
+}
+function set_bundle_contents(form) {
+    var val = form.bundle_contents?.value?.trim();
+    if (val) {
+        return `bundle_contents=${val}`;
+    }
+    return '';
+}
+function set_can_break(form) {
+    var val = form.can_break?.value?.trim();
+    if (val) {
+        var arr = val.split(',').map(function(s){return s.trim();}).filter(Boolean);
+        if (arr.length > 0) {
+            return `can_break=${JSON.stringify(arr)}`;
+        }
+    }
+    return '';
+}
+function set_can_place_on(form) {
+    var val = form.can_place_on?.value?.trim();
+    if (val) {
+        var arr = val.split(',').map(function(s){return s.trim();}).filter(Boolean);
+        if (arr.length > 0) {
+            return `can_place_on=${JSON.stringify(arr)}`;
+        }
+    }
+    return '';
+}
+function set_charged_projectiles(form) {
+    var val = form.charged_projectiles?.value?.trim();
+    if (val) {
+        var arr = val.split(',').map(function(s){return s.trim();}).filter(Boolean);
+        if (arr.length > 0) {
+            return `charged_projectiles=${JSON.stringify(arr)}`;
+        }
+    }
+    return '';
+}
+function set_consumable(form) {
+    var val = form.consumable?.value?.trim();
+    if (val) {
+        return `consumable=${val}`;
+    }
+    return '';
+}
+function set_container(form) {
+    var val = form.container?.value?.trim();
+    if (val) {
+        return `container=${val}`;
+    }
+    return '';
+}
+function set_container_loot(form) {
+    var val = form.container_loot?.value?.trim();
+    if (val) {
+        return `container_loot=${val}`;
+    }
+    return '';
+}
 function set_custom_data(form) {
     if(form.custom_data && form.custom_data.value !== ""){
         return `custom_data=${form.custom_data.value}`;
@@ -103,7 +172,13 @@ function set_custom_data(form) {
         return "";
     }
 }
-function set_custom_model_data(form) {}
+function set_custom_model_data(form) {
+    var val = form.custom_model_data?.value?.trim();
+    if (val && !isNaN(val)) {
+        return `custom_model_data=${val}`;
+    }
+    return '';
+}
 function set_custom_name(form) {
     let component_custom_name = "";
     if(form.custom_name.value !== ""){
@@ -120,7 +195,13 @@ function set_damage(form) {
 }
 function set_damage_resistant(form) {}
 function set_death_protection(form) {}
-function set_debug_stick_state(form) {}
+function set_debug_stick_state(form) {
+    var val = form.debug_stick_state?.value?.trim();
+    if (val) {
+        return `debug_stick_state=${val}`;
+    }
+    return '';
+}
 function set_dyed_color(form) {
     if(form.dyed_color_flag.value !== ""){
         return "dyed_color=" + parseInt(form.dyed_color.value.substr(1, 6), 16);
@@ -144,12 +225,12 @@ function set_enchantments(form) {
     }
 }
 function reset_enchantments(){
-	for(var i = 0; i < form.enchantments_levels.length; i++){
-		form.enchantments_levels[i].value = "";
-	}
-	
-	makeCommand();
-	
+    for(var i = 0; i < form.enchantments_levels.length; i++){
+        form.enchantments_levels[i].value = "";
+    }
+    
+    makeCommand();
+    
 }
 function set_entity_data(form) {}
 function set_equippable(form) {}
