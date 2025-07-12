@@ -76,7 +76,7 @@ function set_bees(form) {
         bee.entity_data = entity_data;
         bee.ticks_in_hive = Number(ticks_in_hive);
         bee.min_ticks_in_hive = Number(min_ticks_in_hive);
-        return '[bees=[' + JSON.stringify(bee).replace(/"(\w+)":/g, '$1:') + ']]';
+        return 'bees=[' + JSON.stringify(bee).replace(/"(\w+)":/g, '$1:') + ']';
     } else {
         return '';
     }
