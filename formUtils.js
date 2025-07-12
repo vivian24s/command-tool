@@ -73,10 +73,8 @@ function set_bees(form) {
         var ticks_in_hive = form.bees_ticks_in_hive.value;
         var min_ticks_in_hive = form.bees_min_ticks_in_hive.value;
         var bee = {};
-        bee.entity_data = entity_data;
-        bee.ticks_in_hive = Number(ticks_in_hive);
-        bee.min_ticks_in_hive = Number(min_ticks_in_hive);
-        return 'bees=[' + JSON.stringify(bee).replace(/"(\w+)":/g, '$1:') + ']';
+        // entity_dataはそのまま展開
+        return 'bees=[{entity_data:' + entity_data + ',ticks_in_hive:' + Number(ticks_in_hive) + ',min_ticks_in_hive:' + Number(min_ticks_in_hive) + '}]';
     } else {
         return '';
     }
