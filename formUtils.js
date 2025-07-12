@@ -225,7 +225,13 @@ function set_enchantable(form) {
         return "";
     }
 }
-function set_enchantment_glint_override(form) {}
+function set_enchantment_glint_override(form) {
+    if(form.enchantment_glint_override && form.enchantment_glint_override.value !== ""){
+        return `enchantment_glint_override=${form.enchantment_glint_override.value}`;
+    } else {
+        return "";
+    }
+}
 function set_enchantments(form) {
     let enchantments = {};
     for(let i = 0; i < form.enchantments_levels.length; i++){
@@ -276,7 +282,13 @@ function set_fireworks(form) {
     }
 }
 function set_food(form) {}
-function set_glider(form) {}
+function set_glider(form) {
+    if(form.glider && form.glider.value === "true"){
+        return "glider={}";
+    } else {
+        return "";
+    }
+}
 function set_instrument(form) {}
 function set_intangible_projectile(form) {}
 function set_item_model(form) {

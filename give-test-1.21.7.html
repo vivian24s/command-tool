@@ -648,6 +648,26 @@
         <th>修繕コスト</th>
         <td><input class="command-input" type="number" name="repair_cost" value="" placeholder="未設定" onchange="makeCommand()"></td>
     </tr>
+    <tr>
+        <th>エンチャントの色</th>
+        <td>
+            <select class="command-input" name="enchantment_glint_override" onchange="makeCommand()">
+                <option value="">未設定</option>
+                <option value="true">表示する(true)</option>
+                <option value="false">表示しない(false)</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <th>滑空可否</th>
+        <td>
+            <select class="command-input" name="glider" onchange="makeCommand()">
+                <option value="">未設定</option>
+                <option value="true">滑空する（true）</option>
+            </select>
+        </td>
+    </tr>
     </table>
 
     <br clear="all">
@@ -731,6 +751,10 @@ function makeCommand(){
     var component_ominous_bottle_amplifier = set_ominous_bottle_amplifier(form);
     var component_potion_duration_scale = set_potion_duration_scale(form);
     var component_repair_cost = set_repair_cost(form);
+
+    var component_enchantment_glint_override = set_enchantment_glint_override(form);
+
+    var component_glider = set_glider(form);
 
     var components = [];
     if(component_custom_name !== ''){
@@ -880,6 +904,14 @@ function makeCommand(){
     }
     if(component_repair_cost !== ''){
         components.push(component_repair_cost);
+    }
+
+    if(component_enchantment_glint_override !== ''){
+        components.push(component_enchantment_glint_override);
+    }
+
+    if(component_glider !== ''){
+        components.push(component_glider);
     }
 
 
