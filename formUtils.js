@@ -78,7 +78,13 @@ function set_bees(form) {
         return '';
     }
 }
-function set_block_entity_data(form) {}
+function set_block_entity_data(form) {
+    if(form.block_entity_data && form.block_entity_data.value !== ""){
+        return `block_entity_data=${form.block_entity_data.value}`;
+    } else {
+        return "";
+    }
+}
 function set_block_state(form) {}
 function set_blocks_attacks(form) {}
 function set_break_sound(form) {}
@@ -92,7 +98,7 @@ function set_container(form) {}
 function set_container_loot(form) {}
 function set_custom_data(form) {
     if(form.custom_data && form.custom_data.value !== ""){
-        return `custom_data={${form.custom_data.value}}`;
+        return `custom_data=${form.custom_data.value}`;
     } else {
         return "";
     }

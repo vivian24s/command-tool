@@ -465,7 +465,12 @@
 
 	</table>
 
-
+    <table class="command-table-vertical">
+        <tr>
+            <th>ブロックのデータ</th>
+            <td><input class="command-input" type="text" name="block_entity_data" value="" placeholder="未設定" onchange="set_block_entity_data()"></td>
+        </tr>
+    </table>
 
 	<br clear="all">
 
@@ -502,6 +507,7 @@ function makeCommand(){
     var component_base_color = set_base_color(form);
     var component_banner_patterns = set_banner_patterns(form);
     var component_bees = set_bees(form);
+    var component_block_entity_data = set_block_entity_data(form);
 
     var components = [];
     if(component_custom_name !== ''){
@@ -518,6 +524,9 @@ function makeCommand(){
     }
     if(component_bees !== ''){
         components.push(component_bees);
+    }
+    if(component_block_entity_data !== ''){
+        components.push(component_block_entity_data);
     }
 
     //giveコマンド生成ツール
