@@ -334,7 +334,13 @@ function set_lore(form) {
         return "";
     }
 }
-function set_map_color(form) {}
+function set_map_color(form) {
+    if(form.dyed_color_flag && form.dyed_color_flag.value !== ""){
+        return `map_color=\"${form.map_color.value}\"`;
+    } else {
+        return "";
+    }
+}
 function set_map_decorations(form) {
     if(form.map_decorations && form.map_decorations.value !== ""){
         return `map_decorations=${form.map_decorations.value}`;

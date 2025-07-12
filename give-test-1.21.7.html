@@ -673,6 +673,21 @@
             </select>
         </td>
     </tr>
+
+    <tr>
+        <th rowspan="2">地図の模様の色</th>
+        <td>
+            <select class="command-input" name="map_color_flag" onchange="makeCommand()">
+                <option value="">未設定</option>
+                <option value="true">設定</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td><input class="command-input" type="color" name="map_color" value="#000000" onchange="makeCommand()" style="width:100%;height:100%;"></td>
+    </tr>
+
     </table>
 
     <br clear="all">
@@ -888,7 +903,6 @@ function makeCommand(){
     if(component_written_book_content !== ''){
         components.push(component_written_book_content);
     }
-
     if(component_max_damage !== ''){
         components.push(component_max_damage);
     }
@@ -904,11 +918,9 @@ function makeCommand(){
     if(component_repair_cost !== ''){
         components.push(component_repair_cost);
     }
-
     if(component_enchantment_glint_override !== ''){
         components.push(component_enchantment_glint_override);
     }
-
     if(component_glider !== ''){
         components.push(component_glider);
     }
