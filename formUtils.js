@@ -1,9 +1,6 @@
 // 共通フォームユーティリティ
 // 他のツールやHTMLからも利用できるように関数をまとめています。
 
-
-
-
 function set_attribute_modifiers(form) {
     let attribute_modifiers = [];
     for(let i = 0; i < form.amount.length; i++){
@@ -334,8 +331,20 @@ function set_map_id(form) {
         return "";
     }
 }
-function set_max_damage(form) {}
-function set_max_stack_size(form) {}
+function set_max_damage(form) {
+    if(form.max_damage && form.max_damage.value !== ""){
+        return `max_damage=${form.max_damage.value}`;
+    } else {
+        return "";
+    }
+}
+function set_max_stack_size(form) {
+    if(form.max_stack_size && form.max_stack_size.value !== ""){
+        return `max_stack_size=${form.max_stack_size.value}`;
+    } else {
+        return "";
+    }
+}
 function set_note_block_sound(form) {
     if(form.note_block_sound && form.note_block_sound.value !== ""){
         return `note_block_sound=${form.note_block_sound.value}`;
@@ -343,7 +352,13 @@ function set_note_block_sound(form) {
         return "";
     }
 }
-function set_ominous_bottle_amplifier(form) {}
+function set_ominous_bottle_amplifier(form) {
+    if (form.ominous_bottle_amplifier && form.ominous_bottle_amplifier.value !== "") {
+        return `ominous_bottle_amplifier=${form.ominous_bottle_amplifier.value}`;
+    } else {
+        return "";
+    }
+}
 function set_pot_decorations(form) {}
 function set_potion_contents(form) {
     let potion_contents = {};
@@ -377,7 +392,13 @@ function set_potion_contents(form) {
         return "";
     }
 }
-function set_potion_duration_scale(form) {}
+function set_potion_duration_scale(form) {
+    if (form.potion_duration_scale && form.potion_duration_scale.value !== "") {
+        return `potion_duration_scale=${form.potion_duration_scale.value}`;
+    } else {
+        return "";
+    }
+}
 function set_profile(form) {
     if(form.profile && form.profile.value !== ""){
         return `profile=${form.profile.value}`;
@@ -413,7 +434,13 @@ function set_recipes(form) {
         return "";
     }
 }
-function set_repair_cost(form) {}
+function set_repair_cost(form) {
+    if(form.repair_cost && form.repair_cost.value !== ""){
+        return `repair_cost=${form.repair_cost.value}`;
+    } else {
+        return "";
+    }
+}
 function set_repairable(form) {
     if(form.repairable && form.repairable.value !== ""){
         return `repairable=${form.repairable.value}`;

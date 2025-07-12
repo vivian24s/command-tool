@@ -628,6 +628,26 @@
             <th>記入済みの本のデータ</th>
             <td><input class="command-input" type="text" name="written_book_content" value="" placeholder="未設定" onchange="makeCommand()"></td>
         </tr>
+        <tr>
+    <th>ツールの最大耐久値</th>
+    <td><input class="command-input" type="number" name="max_damage" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+    <th>最大スタック数</th>
+    <td><input class="command-input" type="number" name="max_stack_size" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+    <th>不吉な瓶のレベル</th>
+    <td><input class="command-input" type="number" name="ominous_bottle_amplifier" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+    <th>ポーションの効果倍率</th>
+    <td><input class="command-input" type="number" name="potion_duration_scale" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
+        <tr>
+    <th>修繕コスト</th>
+    <td><input class="command-input" type="number" name="repair_cost" value="" placeholder="未設定" onchange="makeCommand()"></td>
+        </tr>
     </table>
 
     <br clear="all">
@@ -705,6 +725,12 @@ function makeCommand(){
     var component_weapon = set_weapon(form);
     var component_writable_book_content = set_writable_book_content(form);
     var component_written_book_content = set_written_book_content(form);
+
+    var component_max_damage = set_max_damage(form);
+    var component_max_stack_size = set_max_stack_size(form);
+    var component_ominous_bottle_amplifier = set_ominous_bottle_amplifier(form);
+    var component_potion_duration_scale = set_potion_duration_scale(form);
+    var component_repair_cost = set_repair_cost(form);
 
     var components = [];
     if(component_custom_name !== ''){
@@ -839,6 +865,23 @@ function makeCommand(){
     if(component_written_book_content !== ''){
         components.push(component_written_book_content);
     }
+
+    if(component_max_damage !== ''){
+        components.push(component_max_damage);
+    }
+    if(component_max_stack_size !== ''){
+        components.push(component_max_stack_size);
+    }
+    if(component_ominous_bottle_amplifier !== ''){
+        components.push(component_ominous_bottle_amplifier);
+    }
+    if(component_potion_duration_scale !== ''){
+        components.push(component_potion_duration_scale);
+    }
+    if(component_repair_cost !== ''){
+        components.push(component_repair_cost);
+    }
+
 
     //giveコマンド生成ツール
     form.cmdOutput.value = buildGiveCommand(form, components);
