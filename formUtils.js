@@ -1,6 +1,9 @@
 // 共通フォームユーティリティ
 // 他のツールやHTMLからも利用できるように関数をまとめています。
 
+
+
+
 function set_attribute_modifiers(form) {
     let attribute_modifiers = [];
     for(let i = 0; i < form.amount.length; i++){
@@ -92,7 +95,13 @@ function set_block_state(form) {
         return "";
     }
 }
-function set_blocks_attacks(form) {}
+function set_blocks_attacks(form) {
+    if(form.blocks_attacks && form.blocks_attacks.value !== ""){
+        return `blocks_attacks=${form.blocks_attacks.value}`;
+    } else {
+        return "";
+    }
+}
 function set_break_sound(form) {
     if(form.break_sound && form.break_sound.value !== ""){
         return `block_state=${form.break_sound.value}`;
@@ -115,12 +124,11 @@ function set_bundle_contents(form) {
     }
 }
 function set_can_break(form) {
-    if (form.an_break && form.an_break.value !== "") {
-        return `an_break=${form.an_break.value}`;
+    if (form.can_break && form.can_break.value !== "") {
+        return `can_break=${form.can_break.value}`;
     } else {
         return '';
     }
-
 }
 function set_can_place_on(form) {
     if (form.can_place_on && form.can_place_on.value !== "") {
@@ -185,8 +193,20 @@ function set_damage(form) {
         return "";
     }
 }
-function set_damage_resistant(form) {}
-function set_death_protection(form) {}
+function set_damage_resistant(form) {
+    if(form.damage_resistant && form.damage_resistant.value !== ""){
+        return `damage_resistant=${form.damage_resistant.value}`;
+    } else {
+        return "";
+    }
+}
+function set_death_protection(form) {
+    if(form.death_protection && form.death_protection.value !== ""){
+        return `death_protection=${form.death_protection.value}`;
+    } else {
+        return "";
+    }
+}
 function set_debug_stick_state(form) {
     if (form.debug_stick_state && form.debug_stick_state.value !== "") {
         return `debug_stick_state=${form.debug_stick_state.value}`;
@@ -201,7 +221,13 @@ function set_dyed_color(form) {
         return "";
     }
 }
-function set_enchantable(form) {}
+function set_enchantable(form) {
+    if(form.enchantable && form.enchantable.value !== ""){
+        return `enchantable=${form.enchantable.value}`;
+    } else {
+        return "";
+    }
+}
 function set_enchantment_glint_override(form) {}
 function set_enchantments(form) {
     let enchantments = {};
@@ -224,18 +250,54 @@ function reset_enchantments(){
     makeCommand();
     
 }
-function set_entity_data(form) {}
-function set_equippable(form) {}
-function set_firework_explosion(form) {}
-function set_fireworks(form) {}
+function set_entity_data(form) {
+    if(form.entity_data && form.entity_data.value !== ""){
+        return `entity_data=${form.entity_data.value}`;
+    } else {
+        return "";
+    }
+}
+function set_equippable(form) {
+    if(form.equippable && form.equippable.value !== ""){
+        return `equippable=${form.equippable.value}`;
+    } else {
+        return "";
+    }
+}
+function set_firework_explosion(form) {
+    if(form.firework_explosion && form.firework_explosion.value !== ""){
+        return `firework_explosion=${form.firework_explosion.value}`;
+    } else {
+        return "";
+    }
+}
+function set_fireworks(form) {
+    if(form.fireworks && form.fireworks.value !== ""){
+        return `fireworks=${form.fireworks.value}`;
+    } else {
+        return "";
+    }
+}
 function set_food(form) {}
 function set_glider(form) {}
 function set_instrument(form) {}
 function set_intangible_projectile(form) {}
-function set_item_model(form) {}
+function set_item_model(form) {
+    if(form.item_model && form.item_model.value !== ""){
+        return `item_model=${form.item_model.value}`;
+    } else {
+        return "";
+    }
+}
 function set_item_name(form) {}
 function set_jukebox_playable(form) {}
-function set_lock(form) {}
+function set_lock(form) {
+    if(form.lock && form.lock.value !== ""){
+        return `lock=${form.lock.value}`;
+    } else {
+        return "";
+    }
+}
 function set_lodestone_tracker(form) {}
 function set_lore(form) {
     let lore = [];
@@ -258,11 +320,29 @@ function set_lore(form) {
     }
 }
 function set_map_color(form) {}
-function set_map_decorations(form) {}
-function set_map_id(form) {}
+function set_map_decorations(form) {
+    if(form.map_decorations && form.map_decorations.value !== ""){
+        return `map_decorations=${form.map_decorations.value}`;
+    } else {
+        return "";
+    }
+}
+function set_map_id(form) {
+    if(form.map_id && form.map_id.value !== ""){
+        return `map_id=${form.map_id.value}`;
+    } else {
+        return "";
+    }
+}
 function set_max_damage(form) {}
 function set_max_stack_size(form) {}
-function set_note_block_sound(form) {}
+function set_note_block_sound(form) {
+    if(form.note_block_sound && form.note_block_sound.value !== ""){
+        return `note_block_sound=${form.note_block_sound.value}`;
+    } else {
+        return "";
+    }
+}
 function set_ominous_bottle_amplifier(form) {}
 function set_pot_decorations(form) {}
 function set_potion_contents(form) {
@@ -298,9 +378,27 @@ function set_potion_contents(form) {
     }
 }
 function set_potion_duration_scale(form) {}
-function set_profile(form) {}
-function set_provides_banner_patterns(form) {}
-function set_provides_trim_material(form) {}
+function set_profile(form) {
+    if(form.profile && form.profile.value !== ""){
+        return `profile=${form.profile.value}`;
+    } else {
+        return "";
+    }
+}
+function set_provides_banner_patterns(form) {
+    if(form.provides_banner_patterns && form.provides_banner_patterns.value !== ""){
+        return `provides_banner_patterns=${form.provides_banner_patterns.value}`;
+    } else {
+        return "";
+    }
+}
+function set_provides_trim_material(form) {
+    if(form.provides_trim_material && form.provides_trim_material.value !== ""){
+        return `provides_trim_material=${form.provides_trim_material.value}`;
+    } else {
+        return "";
+    }
+}
 function set_rarity(form) {
     if (form.rarity && form.rarity.value !== "") {
         return `rarity=\"${form.rarity.value}\"`;
@@ -308,12 +406,36 @@ function set_rarity(form) {
         return "";
     }
 }
-function set_recipes(form) {}
+function set_recipes(form) {
+    if(form.recipes && form.recipes.value !== ""){
+        return `recipes=${form.recipes.value}`;
+    } else {
+        return "";
+    }
+}
 function set_repair_cost(form) {}
-function set_repairable(form) {}
+function set_repairable(form) {
+    if(form.repairable && form.repairable.value !== ""){
+        return `repairable=${form.repairable.value}`;
+    } else {
+        return "";
+    }
+}
 function set_stored_enchantments(form) {}
-function set_suspicious_stew_effects(form) {}
-function set_tool(form) {}
+function set_suspicious_stew_effects(form) {
+    if(form.suspicious_stew_effects && form.suspicious_stew_effects.value !== ""){
+        return `suspicious_stew_effects=${form.suspicious_stew_effects.value}`;
+    } else {
+        return "";
+    }
+}
+function set_tool(form) {
+    if(form.tool && form.tool.value !== ""){
+        return `tool=${form.tool.value}`;
+    } else {
+        return "";
+    }
+}
 function set_tooltip_display(form) {
     // 値取得
     const hideTooltip = form.hide_tooltip.value;
@@ -332,7 +454,13 @@ function set_tooltip_display(form) {
     if (hiddenComponents.length > 0) obj.push(`hidden_components:[${hiddenComponents.join(",")}]`);
     return `tooltip_display={${obj.join(",")}}`;
 }
-function set_tooltip_style(form) {}
+function set_tooltip_style(form) {
+    if(form.tooltip_style && form.tooltip_style.value !== ""){
+        return `tooltip_style=${form.tooltip_style.value}`;
+    } else {
+        return "";
+    }
+}
 function set_trim(form) {
     let trim = {};
     if(form.material.value !== "" && form.pattern.value !== ""){
@@ -350,8 +478,38 @@ function set_unbreakable(form) {
         return "";
     }
 }
-function set_use_cooldown(form) {}
-function set_use_remainder(form) {}
-function set_weapon(form) {}
-function set_writable_book_content(form) {}
-function set_written_book_content(form) {}
+function set_use_cooldown(form) {
+    if(form.use_cooldown && form.use_cooldown.value !== ""){
+        return `use_cooldown=${form.use_cooldown.value}`;
+    } else {
+        return "";
+    }
+}
+function set_use_remainder(form) {
+    if(form.use_remainder && form.use_remainder.value !== ""){
+        return `use_remainder=${form.use_remainder.value}`;
+    } else {
+        return "";
+    }
+}
+function set_weapon(form) {
+    if(form.weapon && form.weapon.value !== ""){
+        return `weapon=${form.weapon.value}`;
+    } else {
+        return "";
+    }
+}
+function set_writable_book_content(form) {
+    if(form.writable_book_content && form.writable_book_content.value !== ""){
+        return `writable_book_content=${form.writable_book_content.value}`;
+    } else {
+        return "";
+    }
+}
+function set_written_book_content(form) {
+    if(form.written_book_content && form.written_book_content.value !== ""){
+        return `written_book_content=${form.written_book_content.value}`;
+    } else {
+        return "";
+    }
+}
